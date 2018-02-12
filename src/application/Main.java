@@ -26,7 +26,7 @@ public class Main extends Application {
 			
 			//set main application and provide title + icon
 			this.primaryStage = primaryStage;
-			this.primaryStage.setTitle("Bad Calculator");
+			this.primaryStage.setTitle("Animal Information");
 			
 			//set the application icon, can be of type jpg or png
 			this.primaryStage.getIcons().add(new Image("file:resources/AppIcon.png"));
