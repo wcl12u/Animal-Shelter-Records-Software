@@ -1,7 +1,12 @@
 package application;
-
+/*
+Thaddeus Albert Bartz
+William Christian Leonard
+Period 5
+PSET6-0 SuperProject
+Febuary 12, 2018
+*/
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
