@@ -39,7 +39,7 @@ public class Main extends Application {
 	}
 	
 
-	//the most basic main ever
+	//main
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -48,10 +48,10 @@ public class Main extends Application {
 		try {
 			
 		
-			//create and FXML Loader
+			//create FXML Loader
 			FXMLLoader loader = new FXMLLoader();
 			
-			//Point the loader at FXML File
+			//Point loader at FXML File
 			loader.setLocation(Main.class.getResource("/application/RootLayout.FXML"));
 			
 			//Set the root layout field, casting as appropriate to inject the FXML
@@ -61,14 +61,14 @@ public class Main extends Application {
 			Scene scene = new Scene(rootLayout);
 			
 			
-			//give controller access to our application handle
+			//give controller access
 			//RootLayoutController controller = loader.getController();
 			//controller.setMainApp(this);
 			
-			//set the primary scene
+			//set primary scene
 			primaryStage.setScene(scene);
 			
-			//show the stage
+			//show stage
 			primaryStage.show();
 			
 		} 
