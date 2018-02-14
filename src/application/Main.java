@@ -1,16 +1,13 @@
 package application;
 	
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.Image;
-import javafx.scene.layout.BorderPane;
 
-//b
 public class Main extends Application {
 
 	//Private fields to hold one state and a root layout of our main window
