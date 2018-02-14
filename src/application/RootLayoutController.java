@@ -2,6 +2,7 @@ package application;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 public class RootLayoutController {
@@ -18,7 +19,14 @@ public class RootLayoutController {
 	private Tab manageView;
 	@FXML
 	private ImageView imgAnimalImage;
-	
+	@FXML
+	private TextField txtName;
+	@FXML
+	private TextField txtAge;
+	@FXML
+	private TextField txtWeight;
+	@FXML
+	private TextField txtBreed;
 	
 	public void initialize() {
 		
