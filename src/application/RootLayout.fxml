@@ -9,16 +9,16 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
 	<tabs>
-		<Tab text="Basic Animal Information">
+		<Tab fx:id="basicView" text="Basic Animal Information">
 			<content>
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 					<children>
@@ -26,12 +26,12 @@
 							<bottom>
 								<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
 									<children>
-										<Button mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="New" />
-										<Button layoutX="592.0" layoutY="28.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="Save" />
-										<Button layoutX="650.0" layoutY="28.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="Save Edit" />
-										<Button layoutX="476.0" layoutY="28.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="Delete" />
-										<Button layoutX="766.0" layoutY="28.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="Previous" />
-										<Button layoutX="824.0" layoutY="28.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="Next" />
+										<Button fx:id="btnNew" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="New" />
+										<Button fx:id="btnSave" layoutX="592.0" layoutY="28.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="Save" />
+										<Button fx:id="btnSaveEdit" layoutX="650.0" layoutY="28.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="Save Edit" />
+										<Button fx:id="btnDelete" layoutX="476.0" layoutY="28.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="Delete" />
+										<Button fx:id="btnPrevious" layoutX="766.0" layoutY="28.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="Previous" />
+										<Button fx:id="btnNext" layoutX="824.0" layoutY="28.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="Next" />
 									</children>
 								</HBox>
 							</bottom>
@@ -40,11 +40,7 @@
 									<items>
 										<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
 											<children>
-												<ImageView fitHeight="709.0" fitWidth="637.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
-													<image>
-														<Image url="@../../../../testimage.jpg" />
-													</image>
-												</ImageView>
+												<ImageView fx:id="imgAnimalImage" fitHeight="709.0" fitWidth="637.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true" />
 											</children>
 										</AnchorPane>
 										<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -52,13 +48,13 @@
 												<VBox alignment="CENTER" layoutX="183.0" layoutY="76.0" prefHeight="668.0" prefWidth="643.2" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 													<children>
 														<Label text="Name" />
-														<TextField />
+														<TextField fx:id="txtName" />
 														<Label text="Age" />
-														<TextField />
+														<TextField fx:id="txtAge" />
 														<Label text="Weight" />
-														<TextField />
+														<TextField fx:id="txtWeight" />
 														<Label text="Breed" />
-														<TextField />
+														<TextField fx:id="txtBreed" />
 													</children>
 												</VBox>
 											</children>
@@ -71,32 +67,42 @@
 				</AnchorPane>
 			</content>
 		</Tab>
-		<Tab text="Vet Notes">
+		<Tab fx:id="vetView" text="Vet Notes">
 			<content>
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 					<children>
-						<VBox alignment="CENTER" layoutX="513.0" layoutY="185.0" prefHeight="769.6" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-							<children>
-								<BorderPane>
-									<center>
-										<VBox alignment="CENTER">
-											<children>
-												<Label text="Notes from Veterinarian" />
-												<Separator prefHeight="0.0" prefWidth="1280.0" />
-												<Label text="Dog Name" />
-												<TextArea prefHeight="671.0" prefWidth="1280.0" />
-											</children>
-										</VBox>
-									</center>
-								</BorderPane>
-								<Button mnemonicParsing="false" prefHeight="58.0" prefWidth="177.0" text="Save" />
-							</children>
-						</VBox>
+                  <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <center>
+      						<VBox alignment="CENTER" prefHeight="769.6" prefWidth="1280.0">
+      							<children>
+      								<BorderPane>
+      									<center>
+      										<VBox alignment="CENTER">
+      											<children>
+      												<Label text="Notes from Veterinarian" />
+      												<Separator prefHeight="0.0" prefWidth="1280.0" />
+      												<Label text="Dog Name" />
+            												<TextArea fx:id="txtareaNotes" prefHeight="671.0" prefWidth="1280.0" />
+      											</children>
+      										</VBox>
+      									</center>
+      								</BorderPane>
+      							</children>
+      						</VBox>
+                     </center>
+                     <bottom>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="btnSaveNotes" mnemonicParsing="false" prefHeight="69.0" prefWidth="131.0" text="Save" />
+                           </children>
+                        </HBox>
+                     </bottom>
+                  </BorderPane>
 					</children>
 				</AnchorPane>
 			</content>
 		</Tab>
-		<Tab text="Owner Information">
+		<Tab fx:id="ownerView" text="Owner Information">
 			<content>
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 					<children>
@@ -104,7 +110,7 @@
 							<bottom>
 								<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
 									<children>
-										<Button mnemonicParsing="false" prefHeight="63.0" prefWidth="127.0" text="Save" />
+										<Button fx:id="btnSaveOwner" mnemonicParsing="false" prefHeight="63.0" prefWidth="127.0" text="Save" />
 									</children>
 								</HBox>
 							</bottom>
@@ -116,11 +122,7 @@
 												<VBox alignment="CENTER" layoutX="73.0" layoutY="150.0" prefHeight="668.0" prefWidth="378.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 													<children>
 														<Label text="ID Card" />
-														<ImageView fitHeight="612.0" fitWidth="434.0" pickOnBounds="true" preserveRatio="true">
-															<image>
-																<Image url="@../../../../IMG_0153.JPG" />
-															</image>
-														</ImageView>
+														<ImageView fx:id="imgIDCard" fitHeight="612.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" />
 													</children>
 												</VBox>
 											</children>
@@ -130,15 +132,15 @@
 												<VBox alignment="CENTER" layoutX="177.0" layoutY="220.0" prefHeight="668.0" prefWidth="894.4" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 													<children>
 														<Label text="Name" />
-														<TextField />
+														<TextField fx:id="txtOwnerName" />
 														<Label text="Date of Adoption" />
-														<DatePicker />
+														<DatePicker fx:id="dateAdoptionDate" />
 														<Label text="Address" />
-														<TextField />
+														<TextField fx:id="txtAddress" />
 														<Label text="State of Residence" />
-														<TextField />
+														<TextField fx:id="txtStateOfResidence" />
 														<Label text="Phone Number" />
-														<TextField />
+														<TextField fx:id="txtPhoneNum" />
 													</children>
 												</VBox>
 											</children>
@@ -151,7 +153,7 @@
 				</AnchorPane>
 			</content>
 		</Tab>
-		<Tab text="Shelter Management">
+		<Tab fx:id="manageView" text="Shelter Management">
 			<content>
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -164,15 +166,15 @@
                                     <VBox alignment="CENTER" layoutX="123.0" layoutY="185.0" prefHeight="768.0" prefWidth="378.4" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
                                           <Label text="Food Cost" />
-                                          <Label text="Label" />
+                                          <Label fx:id="lblFoodCost" text="Label" />
                                           <Label text="Maintenance Cost" />
-                                          <Label text="Label" />
+                                          <Label fx:id="lblMaintenanceCost" text="Label" />
                                           <Label text="Personnel Cost" />
-                                          <Label text="Label" />
+                                          <Label fx:id="lblPersonnelCost" text="Label" />
                                           <Label text="Profit" />
-                                          <Label text="Label" />
+                                          <Label fx:id="lblProfit" text="Label" />
                                           <Label text="Revenue" />
-                                          <Label text="Label" />
+                                          <Label fx:id="lblRevenue" text="Label" />
                                        </children>
                                     </VBox>
                                  </children>
@@ -183,25 +185,35 @@
                                        <bottom>
                                           <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <Button mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Save" />
+                                                <Button fx:id="btnNewEmployee" layoutX="137.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="New" />
+                                                <Button fx:id="btnDeleteEmployee" layoutX="265.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Delete" />
+                                                <Button fx:id="btnSaveEmployee" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Save" />
+                                                <Button fx:id="btnSaveEditEmployee" layoutX="201.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Save Edit" />
+                                                <Button fx:id="btnPreviousEmployee" layoutX="393.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Previous" />
+                                                <Button fx:id="btnNextEmployee" layoutX="457.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Next" />
                                              </children>
                                           </HBox>
                                        </bottom>
                                        <center>
                                           <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" scaleShape="false" spacing="15.0" BorderPane.alignment="CENTER">
                                              <children>
+                                                <Label alignment="CENTER" prefHeight="40.0" prefWidth="320.0" text="Personnel Information" underline="true">
+                                                   <font>
+                                                      <Font size="28.0" />
+                                                   </font>
+                                                </Label>
                                                 <Label text="Name" />
-                                                <TextField />
+                                                <TextField fx:id="txtNameEmployee" />
                                                 <Label text="Age" />
-                                                <TextField />
+                                                <TextField fx:id="txtAgeEmployee" />
                                                 <Label text="Address" />
-                                                <TextField />
+                                                <TextField fx:id="txtAddressEmployee" />
                                                 <Label text="Date of Birth" />
-                                                <DatePicker />
+                                                <DatePicker fx:id="dateBirthday" />
                                                 <Label text="Date of Employment" />
-                                                <DatePicker />
+                                                <DatePicker fx:id="dateEmployementDate" />
                                                 <Label text="Wage" />
-                                                <TextField />
+                                                <TextField fx:id="txtWage" />
                                              </children>
                                           </VBox>
                                        </center>
