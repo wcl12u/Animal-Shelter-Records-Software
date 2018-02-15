@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="729.6" prefWidth="1280.0" spacing="20.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="223.0" text="Personnel Records" textAlignment="CENTER" underline="true">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label text="Name" />
+      <Label fx:id="lblName" text="Label" />
+      <Label text="Age" />
+      <Label fx:id="lblAge" text="Label" />
+      <Label text="Address" />
+      <Label fx:id="lblAddress" text="Label" />
+      <Label text="Date of Birth" />
+      <Label fx:id="lblDateOfBirth" text="Label" />
+      <Label text="Date of Employement" />
+      <Label fx:id="lblDateOfEmployement" text="Label" />
+      <Label text="Wage" />
+      <Label fx:id="lblWage" text="Label" />
+   </children>
+</VBox>
