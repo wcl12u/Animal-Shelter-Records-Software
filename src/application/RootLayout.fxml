@@ -5,6 +5,7 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
@@ -177,6 +178,10 @@
                                           <Label fx:id="lblProfit" text="Label" />
                                           <Label text="Revenue" />
                                           <Label fx:id="lblRevenue" text="Label" />
+                                          <Separator prefHeight="128.0" prefWidth="378.0" visible="false" />
+                                          <Label text="Unlock Personnel Editing" underline="true" />
+                                          <Label text="Password:" />
+                                          <PasswordField fx:id="pswdPersonnelEdit" />
                                        </children>
                                     </VBox>
                                  </children>
@@ -197,7 +202,7 @@
                                           </HBox>
                                        </bottom>
                                        <center>
-                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" scaleShape="false" spacing="15.0" BorderPane.alignment="CENTER">
+                                          <VBox fx:id="personnelEdit" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" scaleShape="false" spacing="15.0" BorderPane.alignment="CENTER">
                                              <children>
                                                 <Label alignment="CENTER" prefHeight="40.0" prefWidth="320.0" text="Personnel Information" underline="true">
                                                    <font>
@@ -240,7 +245,8 @@
                      <bottom>
                         <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                           <buttons>
-                            <Button mnemonicParsing="false" text="Button" />
+                              <Button mnemonicParsing="false" text="Previous" />
+                            <Button mnemonicParsing="false" text="Next" />
                           </buttons>
                         </ButtonBar>
                      </bottom>
