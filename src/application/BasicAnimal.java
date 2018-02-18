@@ -1,72 +1,91 @@
 package application;
 
+/*
+Thaddeus Albert Bartz
+William Christian Leonard
+Period 5
+PSET6-0 SuperProject
+February 12, 2018
+*/
+
 public class BasicAnimal {
 
-	private String animalType, animalBreed, pictureLink;
+	private String animalName, animalType, animalBreed, pictureLink;
 	private double weight;
+	private Owner owner;
+	private VetStatus vetStatus;
 	
-	//default
+	//Default
 	public BasicAnimal() {
 		this.animalType = "No Entry";
 		this.animalBreed = "No Entry";
-		this.pictureLink = "";// some default oops clipart
+		this.pictureLink = ""; //some default oops clipart
 		this.weight = 0.00;
+		owner = new Owner();
+		vetStatus = new VetStatus();
 	}
 
-	//full
+	//Full
 	public BasicAnimal(String animalType, String breed, String pictureLink, int weight) {
-		
 		this.animalType = animalType;
 		this.animalBreed = breed;
 		this.pictureLink = pictureLink;
 		this.weight = weight;
+		owner = new Owner();
+		vetStatus = new VetStatus();
 	}
 	
-	//no weight
-
+	//No Weight
 	public BasicAnimal(String animalType, String animalBreed, String pictureLink) {
 		this.animalType = animalType;
 		this.animalBreed = animalBreed;
 		this.pictureLink = pictureLink;
 		this.weight = 0.00;
+		owner = new Owner();
+		vetStatus = new VetStatus();
 	}
 
 	
-	//no picture link
+	//No Picture Link
 	public BasicAnimal(String animalType, String animalBreed, int weight) {
 		this.animalType = animalType;
 		this.animalBreed = animalBreed;
 		this.pictureLink = "";// some default oops clipart
 		this.weight = weight;
+		owner = new Owner();
+		vetStatus = new VetStatus();
 	}
 	
-	//no weight or picture
-
+	//No Weight or Picture
 	public BasicAnimal(String animalType, String animalBreed) {
 		this.animalType = animalType;
 		this.animalBreed = animalBreed;
 		this.pictureLink = "";// some default oops clipart
 		this.weight = 0.00;
+		owner = new Owner();
+		vetStatus = new VetStatus();
 	}
 
-	//no breed or picture
+	//No Breed or Picture
 	public BasicAnimal(String animalType, int weight) {
 		this.animalType = animalType;
 		this.animalBreed = "No Entry";
 		this.pictureLink = "";// some default oops clipart
 		this.weight = weight;
+		owner = new Owner();
+		vetStatus = new VetStatus();
 	}
 
-	
-	//no breed, picture, or weight
+	//No Breed, Picture, or Weight
 	public BasicAnimal(String animalType) {
 		this.animalType = animalType;
 		this.animalBreed = "No Entry";
 		this.pictureLink = "";// some default oops clipart
 		this.weight = 0.00;
+		owner = new Owner();
+		vetStatus = new VetStatus();
 	}
 	
-
 	public String getAnimalType() {
 		return animalType;
 	}
@@ -99,21 +118,29 @@ public class BasicAnimal {
 		this.weight = weight;
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public String getAnimalName() {
+		return animalName;
+	}
+
+	public void setAnimalName(String animalName) {
+		this.animalName = animalName;
+	}
+
+	public Owner getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Owner owner) {
+		this.owner = owner;
+	}
+
+	public VetStatus getVetStatus() {
+		return vetStatus;
+	}
+
+	public void setVetStatus(VetStatus vetStatus) {
+		this.vetStatus = vetStatus;
+	}
 	
 	
 }

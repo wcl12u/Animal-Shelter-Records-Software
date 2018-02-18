@@ -20,7 +20,7 @@ public class Main extends Application {
 
 			//Set main application and provide title and icon
 			this.primaryStage = primaryStage;
-			this.primaryStage.setTitle("Mayflower High School Media Center Book Issuance Tracking");
+			this.primaryStage.setTitle("Animal Shelter Record Keeping");
 
 			//Set the application icon
 			this.primaryStage.getIcons().add(new Image("/application/AppIcon.png"));

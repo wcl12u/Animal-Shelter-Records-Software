@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
@@ -18,10 +19,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import application.*?>
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RootLayoutController">
 	<tabs>
-		<Tab fx:id="basicView" text="Basic Animal Information">
+		<Tab fx:id="basicView" closable="false" text="Animal Information">
 			<content>
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 					<children>
@@ -52,8 +54,8 @@
 													<children>
 														<Label text="Name" />
 														<TextField fx:id="txtName" />
-														<Label text="Age" />
-														<TextField fx:id="txtAge" />
+														<Label text="Type" />
+														<TextField fx:id="txtAnimalType" />
 														<Label text="Weight" />
 														<TextField fx:id="txtWeight" />
 														<Label text="Breed" />
@@ -70,7 +72,7 @@
 				</AnchorPane>
 			</content>
 		</Tab>
-		<Tab fx:id="vetView" text="Vet Notes">
+		<Tab fx:id="vetView" closable="false" text="Vet Notes">
 			<content>
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 					<children>
@@ -82,9 +84,17 @@
       									<center>
       										<VBox alignment="CENTER">
       											<children>
-      												<Label text="Notes from Veterinarian" />
-      												<Separator prefHeight="0.0" prefWidth="1280.0" />
-      												<Label text="Dog Name" />
+      												<Label fx:id="lblDogName" text="Dog Name" />
+      												<Separator prefHeight="55.0" prefWidth="1280.0" />
+                                          <Label text="Animal Hospital Name" />
+                                          <TextField fx:id="txtVetName" />
+                                          <Label text="Veterinarian Address" />
+                                          <TextField fx:id="txtVetAddress" />
+                                          <Label text="Doctor's Name" />
+                                          <TextField fx:id="txtDoctorName" />
+                                          <Label text="Animal Status" />
+                                          <ChoiceBox fx:id="chbxAnimalStatus" prefWidth="150.0" />
+                                          <Label text="Veterinarian Notes" />
             												<TextArea fx:id="txtareaNotes" prefHeight="671.0" prefWidth="1280.0" />
       											</children>
       										</VBox>
@@ -105,7 +115,7 @@
 				</AnchorPane>
 			</content>
 		</Tab>
-		<Tab fx:id="ownerView" text="Owner Information">
+		<Tab fx:id="ownerView" closable="false" text="Owner Information">
 			<content>
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 					<children>
@@ -136,6 +146,8 @@
 													<children>
 														<Label text="Name" />
 														<TextField fx:id="txtOwnerName" />
+                                          <Label text="Age" />
+                                          <TextField fx:id="txtOwnerAge" />
 														<Label text="Date of Adoption" />
 														<DatePicker fx:id="dateAdoptionDate" />
 														<Label text="Address" />
@@ -156,51 +168,17 @@
 				</AnchorPane>
 			</content>
 		</Tab>
-		<Tab fx:id="manageView" text="Shelter Management">
+		<Tab fx:id="manageView" closable="false" text="Personnel Information Management">
 			<content>
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
                   <BorderPane layoutX="225.0" layoutY="151.0" prefHeight="769.6" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <center>
-                        <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                        <SplitPane prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                           <items>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                  <children>
-                                    <VBox alignment="CENTER" layoutX="123.0" layoutY="185.0" prefHeight="768.0" prefWidth="378.4" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <children>
-                                          <Label text="Food Cost" />
-                                          <Label fx:id="lblFoodCost" text="Label" />
-                                          <Label text="Maintenance Cost" />
-                                          <Label fx:id="lblMaintenanceCost" text="Label" />
-                                          <Label text="Personnel Cost" />
-                                          <Label fx:id="lblPersonnelCost" text="Label" />
-                                          <Label text="Profit" />
-                                          <Label fx:id="lblProfit" text="Label" />
-                                          <Label text="Revenue" />
-                                          <Label fx:id="lblRevenue" text="Label" />
-                                          <Separator prefHeight="128.0" prefWidth="378.0" visible="false" />
-                                          <Label text="Unlock Personnel Editing" underline="true" />
-                                          <Label text="Password:" />
-                                          <PasswordField fx:id="pswdPersonnelEdit" />
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </AnchorPane>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                 <children>
                                     <BorderPane layoutX="312.0" layoutY="310.0" prefHeight="768.0" prefWidth="894.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <bottom>
-                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                                             <children>
-                                                <Button fx:id="btnNewEmployee" layoutX="137.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="New" />
-                                                <Button fx:id="btnDeleteEmployee" layoutX="265.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Delete" />
-                                                <Button fx:id="btnSaveEmployee" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Save" />
-                                                <Button fx:id="btnSaveEditEmployee" layoutX="201.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Save Edit" />
-                                                <Button fx:id="btnPreviousEmployee" layoutX="393.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Previous" />
-                                                <Button fx:id="btnNextEmployee" layoutX="457.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Next" />
-                                             </children>
-                                          </HBox>
-                                       </bottom>
                                        <center>
                                           <VBox fx:id="personnelEdit" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" scaleShape="false" spacing="15.0" BorderPane.alignment="CENTER">
                                              <children>
@@ -230,17 +208,34 @@
                           </items>
                         </SplitPane>
                      </center>
+                     <bottom>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label text="Personnel Editing Password:" />
+                              <PasswordField fx:id="pswdPersonnelEdit" />
+                              <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="51.0" visible="false" />
+                              <Button fx:id="btnNewEmployee" layoutX="137.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="New" />
+                              <Button fx:id="btnDeleteEmployee" layoutX="265.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Delete" />
+                              <Button fx:id="btnSaveEmployee" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Save" />
+                              <Button fx:id="btnSaveEditEmployee" layoutX="201.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Save Edit" />
+                              <Button fx:id="btnPreviousEmployee" layoutX="393.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Previous" />
+                              <Button fx:id="btnNextEmployee" layoutX="457.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Next" />
+                           </children>
+                        </HBox>
+                     </bottom>
                   </BorderPane>
                </children></AnchorPane>
 			</content>
 		</Tab>
-      <Tab fx:id="viewEmployeeRecords" text="Employee Records">
+      <Tab fx:id="viewEmployeeRecords" closable="false" text="Personnel Records and Expense Report">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
                   <BorderPane layoutX="540.0" layoutY="298.0" prefHeight="769.6" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <center>
-                        <ListView fx:id="listviewPersonnel" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                        <ListView fx:id="listviewPersonnel" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                        	<CellLayoutPersonnel />
+                        </ListView>
                      </center>
                      <bottom>
                         <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -250,6 +245,27 @@
                           </buttons>
                         </ButtonBar>
                      </bottom>
+                     <left>
+                        <VBox alignment="CENTER" prefHeight="768.0" prefWidth="378.4" spacing="15.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="81.0" prefWidth="161.0" text="Expense Report" textAlignment="CENTER" underline="true">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Food Cost" />
+                              <Label fx:id="lblFoodCost" text="Label" />
+                              <Label text="Maintenance Cost" />
+                              <Label fx:id="lblMaintenanceCost" text="Label" />
+                              <Label text="Personnel Cost" />
+                              <Label fx:id="lblPersonnelCost" text="Label" />
+                              <Label text="Profit" />
+                              <Label fx:id="lblProfit" text="Label" />
+                              <Label text="Revenue" />
+                              <Label fx:id="lblRevenue" text="Label" />
+                           </children>
+                        </VBox>
+                     </left>
                   </BorderPane>
                </children>
             </AnchorPane>

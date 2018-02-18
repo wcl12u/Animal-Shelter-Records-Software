@@ -1,10 +1,18 @@
 package application;
 
-import java.awt.Button;
+/*
+Thaddeus Albert Bartz
+William Christian Leonard
+Period 5
+PSET6-0 SuperProject
+February 12, 2018
+*/
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -13,6 +21,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 
 public class RootLayoutController {
 	
@@ -33,7 +42,7 @@ public class RootLayoutController {
 	@FXML
 	private TextField txtName;
 	@FXML
-	private TextField txtAge;
+	private TextField txtAnimalType;
 	@FXML
 	private TextField txtWeight;
 	@FXML
@@ -51,6 +60,16 @@ public class RootLayoutController {
 	@FXML
 	private Button btnNext;
 	@FXML
+	private Label lblDogName;
+	@FXML
+	private TextField txtVetName;
+	@FXML
+	private TextField txtVetAddress;
+	@FXML
+	private TextField txtDoctorName;
+	@FXML
+	private ChoiceBox<String> chbxAnimalStatus;
+	@FXML
 	private TextArea txtareaNotes;
 	@FXML
 	private Button btnSaveNotes;
@@ -58,6 +77,8 @@ public class RootLayoutController {
 	private ImageView imgIDCard;
 	@FXML
 	private TextField txtOwnerName;
+	@FXML
+	private TextField txtOwnerAge;
 	@FXML
 	private DatePicker dateAdoptionDate;
 	@FXML
@@ -71,7 +92,7 @@ public class RootLayoutController {
 	@FXML
 	private Label lblFoodCost;
 	@FXML
-	private Label lblMaintenance;
+	private Label lblMaintenanceCost;
 	@FXML
 	private Label lblPersonnelCost;
 	@FXML
@@ -80,6 +101,8 @@ public class RootLayoutController {
 	private Label lblRevenue;
 	@FXML
 	private PasswordField pswdPersonnelEdit;
+	@FXML
+	private VBox personnelEdit;
 	@FXML
 	private TextField txtNameEmployee;
 	@FXML
@@ -112,8 +135,9 @@ public class RootLayoutController {
 	private Button btnNextEmployeeView;
 	
 	ObservableList<CellLayoutPersonnel> employeeRecords = FXCollections.observableArrayList();
-	
 	ObservableList<BasicAnimal> animalRecords = FXCollections.observableArrayList();
+	
+	private final String password = "person records!!";
 	
 	public void initialize() {
 		
