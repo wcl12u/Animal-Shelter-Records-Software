@@ -8,6 +8,11 @@ PSET6-0 SuperProject
 February 12, 2018
 */
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.List;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,7 +25,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.VBox;
 
 public class RootLayoutController {
@@ -141,6 +150,28 @@ public class RootLayoutController {
 	
 	public void initialize() {
 		
+	}
+	
+	@FXML
+	public void handleIDDrapOver(DragEvent dragEvent) {
+		Dragboard board = dragEvent.getDragboard();
+		if (board.hasFiles()) {
+			dragEvent.acceptTransferModes(TransferMode.ANY);
+		}
+	}
+	
+	@FXML
+	public void handleIDDrop(DragEvent de) {
+		try {
+			Dragboard board = de.getDragboard();
+			List<File> phil = board.getFiles();
+			FileInputStream fileInputStream;
+			fileInputStream = new FileInputStream(phil.get(0));
+			Image image = new Image(fileInputStream);
+			imgIDCard.setImage(image);
+		} catch(FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void setMainApp(Main mainApp) {
