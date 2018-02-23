@@ -11,7 +11,8 @@ import java.time.LocalDate;
 public class Personnel {
 
 	private String personnelName;
-	private String personnelAge;
+	private String personnelAddress;
+	private int personnelAge;
 	private LocalDate personnelDOE;
 	private LocalDate personnelDOB;
 	private double wage;
@@ -22,7 +23,8 @@ public class Personnel {
 	//default
 	public Personnel() {
 		this.personnelName = "";
-		this.personnelAge = "";
+		this.personnelAge = 0;
+		this.personnelAddress = "";
 		this.personnelDOE = LocalDate.EPOCH;
 		this.personnelDOB = LocalDate.EPOCH;
 		this.wage = 0.00;
@@ -30,8 +32,9 @@ public class Personnel {
 	}
 	
 	//full
-	public Personnel(String personnelName, String personnelAge, LocalDate personnelDOE, LocalDate personnelDOB, double wage) {
+	public Personnel(String personnelName,String personnelAddress, int personnelAge, LocalDate personnelDOE, LocalDate personnelDOB, double wage) {
 		this.personnelName = personnelName;
+		this.personnelAddress = personnelAddress;
 		this.personnelAge = personnelAge;
 		this.personnelDOE = personnelDOE;
 		this.personnelDOB = personnelDOB;
@@ -44,10 +47,16 @@ public class Personnel {
 	public void setPersonnelName(String personnelName) {
 		this.personnelName = personnelName;
 	}
-	public String getPersonnelAge() {
+	public String getPersonnelAddress() {
+		return personnelAddress;
+	}
+	public void setPersonnelAddress(String personnelAddress) {
+		this.personnelAddress = personnelAddress;
+	}
+	public int getPersonnelAge() {
 		return personnelAge;
 	}
-	public void setPersonnelAge(String personnelAge) {
+	public void setPersonnelAge(int personnelAge) {
 		this.personnelAge = personnelAge;
 	}
 	public LocalDate getPersonnelDOE() {

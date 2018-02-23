@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1265.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="421.0" />
+      <Separator orientation="VERTICAL" prefHeight="200.0" />
+      <VBox prefHeight="200.0" prefWidth="421.0" />
+      <Separator orientation="VERTICAL" prefHeight="200.0" />
+      <VBox prefHeight="200.0" prefWidth="421.0" />
+   </children>
+</HBox>

@@ -31,6 +31,10 @@ public class CellLayoutPersonnelController implements Initializable {
 	Label lblDateOfEmployement;
 	@FXML
 	Label lblWage;
+	@FXML
+	Label lblIsEmployed;
+	@FXML
+	Label lblEmployeeNotes;
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {

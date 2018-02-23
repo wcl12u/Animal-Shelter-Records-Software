@@ -6,17 +6,19 @@ William Christian Leonard
 Period 5
 PSET6-0 SuperProject
 February 12, 2018
-*/
+ */
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.List;
+import java.util.logging.Handler;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -30,12 +32,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 public class RootLayoutController {
-	
+
 	private Main mainApp;
-	
+
+	private int animalIndex = -1;
+	@FXML
+	private AnchorPane root;
 	@FXML
 	private Tab basicView;
 	@FXML
@@ -125,6 +131,10 @@ public class RootLayoutController {
 	@FXML
 	private TextField txtWage;
 	@FXML
+	private CheckBox chkbxIsEmployed;
+	@FXML
+	private TextArea txtareaEmployeeNotes;
+	@FXML
 	private Button btnNewEmployee;
 	@FXML
 	private Button btnDeleteEmployee;
@@ -142,16 +152,37 @@ public class RootLayoutController {
 	private Button btnPreviousEmployeeView;
 	@FXML
 	private Button btnNextEmployeeView;
-	
+
 	ObservableList<CellLayoutPersonnel> employeeRecords = FXCollections.observableArrayList();
 	ObservableList<BasicAnimal> animalRecords = FXCollections.observableArrayList();
-	
+
 	private final String password = "person records!!";
-	
+
 	public void initialize() {
-		
+
+		personnelEdit.setDisable(true);
+		//listviewPersonnel.setItems(employeeRecords);
+		root.getChildren();
+
+		if (animalRecords.size() == 0) {
+			btnSaveEdit.setDisable(true);
+			btnSave.setDisable(false);
+			btnDelete.setDisable(true);
+			Image defaultImage = new Image("/application/AddImageImage.png");
+			imgAnimalImage.setImage(defaultImage);
+			imgIDCard.setImage(defaultImage);
+		}
 	}
 	
+	@FXML
+	public void handleBasicView() {
+		if (basicView.isSelected() == true) {
+			if (animalIndex != -1) {
+				BasicAnimal animal = animalRecords.get(animalIndex);
+			}
+		}
+	}
+
 	@FXML
 	public void handleIDDrapOver(DragEvent dragEvent) {
 		Dragboard board = dragEvent.getDragboard();
@@ -159,7 +190,7 @@ public class RootLayoutController {
 			dragEvent.acceptTransferModes(TransferMode.ANY);
 		}
 	}
-	
+
 	@FXML
 	public void handleIDDrop(DragEvent de) {
 		try {
@@ -173,9 +204,33 @@ public class RootLayoutController {
 			e.printStackTrace();
 		}
 	}
+
+	@FXML
+	public void handlePetDrapOver(DragEvent dragEvent) {
+		Dragboard board = dragEvent.getDragboard();
+		if (board.hasFiles()) {
+			dragEvent.acceptTransferModes(TransferMode.ANY);
+		}
+	}
+
+	@FXML
+	public void handlePetDrop(DragEvent de) {
+		try {
+			Dragboard board = de.getDragboard();
+			List<File> phil = board.getFiles();
+			FileInputStream fileInputStream;
+			fileInputStream = new FileInputStream(phil.get(0));
+			Image image = new Image(fileInputStream);
+			imgAnimalImage.setImage(image);
+		} catch(FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 	
+	
+
 	public void setMainApp(Main mainApp) {
 		this.mainApp = mainApp;
 	}
-	
+
 }

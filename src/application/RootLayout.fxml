@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.CheckBox?>
@@ -20,8 +21,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import application.*?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RootLayoutController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@application.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RootLayoutController">
 	<tabs>
 		<Tab fx:id="basicView" closable="false" text="Animal Information">
 			<content>
@@ -45,7 +47,10 @@
 									<items>
 										<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
 											<children>
-												<ImageView fx:id="imgAnimalImage" fitHeight="645.0" fitWidth="637.0" layoutX="-4.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+												<ImageView fx:id="imgAnimalImage" fitHeight="645.0" fitWidth="637.0" layoutX="-4.0" layoutY="25.0" onDragDropped="#handlePetDrop" onDragOver="#handlePetDrapOver" pickOnBounds="true" preserveRatio="true">
+                                       <viewport>
+                                          <Rectangle2D minX="318.5" />
+                                       </viewport></ImageView>
                                     <Label layoutX="269.0" layoutY="3.0" text="Picture of Animal" />
 											</children>
 										</AnchorPane>
@@ -233,7 +238,7 @@
 		</Tab>
       <Tab fx:id="viewEmployeeRecords" closable="false" text="Personnel Records and Expense Report">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+          <AnchorPane fx:id="root" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
                   <BorderPane layoutX="540.0" layoutY="298.0" prefHeight="769.6" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <center>
