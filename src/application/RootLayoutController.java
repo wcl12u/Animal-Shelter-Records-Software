@@ -11,9 +11,10 @@ February 12, 2018
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.logging.Handler;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -52,6 +53,8 @@ public class RootLayoutController {
 	private Tab manageView;
 	@FXML
 	private Tab viewEmployeeRecords;
+	@FXML
+	private Tab viewAnimalRecords;
 	@FXML
 	private ImageView imgAnimalImage;
 	@FXML
@@ -152,9 +155,11 @@ public class RootLayoutController {
 	private Button btnPreviousEmployeeView;
 	@FXML
 	private Button btnNextEmployeeView;
+	@FXML
+	private ListView<CellLayoutAnimal> listviewAnimal;
 
 	ObservableList<CellLayoutPersonnel> employeeRecords = FXCollections.observableArrayList();
-	ObservableList<BasicAnimal> animalRecords = FXCollections.observableArrayList();
+	ObservableList<CellLayoutAnimal> animalRecords = FXCollections.observableArrayList();
 
 	private final String password = "person records!!";
 
@@ -227,6 +232,39 @@ public class RootLayoutController {
 		}
 	}
 	
+	public void writeFileAnimal(String name) {
+		FileOutputStream fileOutputStream;
+		ObjectOutputStream objectOutputStream;
+		try {
+			fileOutputStream = new FileOutputStream(name);
+			objectOutputStream = new ObjectOutputStream(fileOutputStream);
+			for(/*does not exist*/) {
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public void writeFilePersonnel(String name) {
+		FileOutputStream fileOutputStream;
+		ObjectOutputStream objectOutputStream;
+		try {
+			fileOutputStream = new FileOutputStream(name);
+			objectOutputStream = new ObjectOutputStream(fileOutputStream);
+			for(CellLayoutPersonnel element: employeeRecords) {
+				objectOutputStream.writeObject(element.getPersonnel());
+			}
+			FileOutputStream fileperson = new FileOutputStream(new File("Personnel_Length"));
+			fileperson.write(employeeRecords.size());
+			fileperson.close();
+			fileOutputStream.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	
 
 	public void setMainApp(Main mainApp) {

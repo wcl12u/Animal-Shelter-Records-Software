@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -17,16 +18,20 @@
                </font>
             </Label>
             <Separator prefWidth="200.0" />
-            <ImageView fitHeight="284.0" fitWidth="417.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="284.0" fitWidth="417.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image />
+               </image>
+            </ImageView>
             <Separator prefWidth="200.0" />
             <Label text="Name" />
-            <Label text="Label" />
+            <Label fx:id="lblAnimalName" text="Label" />
             <Label text="Type" />
-            <Label text="Label" />
+            <Label fx:id="lblAnimalType" text="Label" />
             <Label text="Weight" />
-            <Label text="Label" />
+            <Label fx:id="lblAnimalWeight" text="Label" />
             <Label text="Breed" />
-            <Label text="Label" />
+            <Label fx:id="lblAnimalBreed" text="Label" />
          </children></VBox>
       <Separator orientation="VERTICAL" prefHeight="200.0" />
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="421.0" spacing="15.0">
@@ -37,15 +42,15 @@
                </font>
             </Label>
             <Label text="Animal Hospital Name" />
-            <Label text="Label" />
+            <Label fx:id="lblHospitalName" text="Label" />
             <Label text="Animal Hospital Address" />
-            <Label text="Label" />
+            <Label fx:id="lblHospitalAddress" text="Label" />
             <Label text="Doctor's Name" />
-            <Label text="Label" />
+            <Label fx:id="lblDoctorName" text="Label" />
             <Label text="Animal Status" />
-            <Label text="Label" />
+            <Label fx:id="lblAnimalStatus" text="Label" />
             <Label text="Veterinarian Notes" />
-            <Label text="Label" />
+            <Label fx:id="lblVetNotes" text="Label" />
          </children></VBox>
       <Separator orientation="VERTICAL" prefHeight="200.0" />
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="421.0" spacing="15.0">
@@ -56,17 +61,17 @@
                </font>
             </Label>
             <Label text="Name" />
-            <Label text="Label" />
+            <Label fx:id="lblOwnerName" text="Label" />
             <Label text="Age" />
-            <Label text="Label" />
+            <Label fx:id="lblOwnerAge" text="Label" />
             <Label text="Date of Adoption" />
-            <Label text="Label" />
+            <Label fx:id="lblDateOfAdoption" text="Label" />
             <Label text="Address" />
-            <Label text="Label" />
+            <Label fx:id="lblOwnerAddress" text="Label" />
             <Label text="State of Residence" />
-            <Label text="Label" />
+            <Label fx:id="lblOwnerStateOfResidence" text="Label" />
             <Label text="Phone Number" />
-            <Label text="Label" />
+            <Label fx:id="lblPhoneNumber" text="Label" />
          </children></VBox>
    </children>
 </HBox>
