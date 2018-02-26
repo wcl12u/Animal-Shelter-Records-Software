@@ -2,28 +2,22 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1265.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="421.0" spacing="15.0">
          <children>
-            <Label text="Animal Information" underline="true">
+            <Label alignment="CENTER" prefHeight="63.0" prefWidth="226.0" text="Animal Information" textAlignment="CENTER" underline="true">
                <font>
                   <Font size="26.0" />
                </font>
             </Label>
             <Separator prefWidth="200.0" />
-            <ImageView fitHeight="302.0" fitWidth="418.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="img" />
-               </image>
-            </ImageView>
+            <ImageView fitHeight="284.0" fitWidth="417.0" pickOnBounds="true" preserveRatio="true" />
             <Separator prefWidth="200.0" />
             <Label text="Name" />
             <Label text="Label" />
@@ -33,43 +27,27 @@
             <Label text="Label" />
             <Label text="Breed" />
             <Label text="Label" />
-         </children>
-      </VBox>
+         </children></VBox>
       <Separator orientation="VERTICAL" prefHeight="200.0" />
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="421.0" spacing="15.0">
          <children>
-            <Label text="Veterinarian Information" underline="true">
+            <Label alignment="CENTER" prefHeight="63.0" prefWidth="285.0" text="Veterinarian Information" textAlignment="CENTER" underline="true">
                <font>
                   <Font size="26.0" />
                </font>
             </Label>
-            <Label text="Hospital Name" />
+            <Label text="Animal Hospital Name" />
             <Label text="Label" />
-            <Label text="Veterinarian Address" />
+            <Label text="Animal Hospital Address" />
             <Label text="Label" />
             <Label text="Doctor's Name" />
             <Label text="Label" />
             <Label text="Animal Status" />
             <Label text="Label" />
+            <Label text="Veterinarian Notes" />
             <Label text="Label" />
-            <Label text="Label" />
-         </children>
-      </VBox>
+         </children></VBox>
       <Separator orientation="VERTICAL" prefHeight="200.0" />
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="421.0" spacing="15.0">
-         <children>
-            <Label text="Owner Information" underline="true">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Label>
-            <Label text="Label" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-            <Label text="Label" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-            <Label text="Label" />
-         </children>
-      </VBox>
-      <Label text="Label" />
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="421.0" spacing="15.0" />
    </children>
 </HBox>
