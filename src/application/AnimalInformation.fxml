@@ -48,6 +48,25 @@
             <Label text="Label" />
          </children></VBox>
       <Separator orientation="VERTICAL" prefHeight="200.0" />
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="421.0" spacing="15.0" />
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="421.0" spacing="15.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="63.0" prefWidth="285.0" text="Owner Information" textAlignment="CENTER" underline="true">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label text="Name" />
+            <Label text="Label" />
+            <Label text="Age" />
+            <Label text="Label" />
+            <Label text="Date of Adoption" />
+            <Label text="Label" />
+            <Label text="Address" />
+            <Label text="Label" />
+            <Label text="State of Residence" />
+            <Label text="Label" />
+            <Label text="Phone Number" />
+            <Label text="Label" />
+         </children></VBox>
    </children>
 </HBox>
