@@ -160,7 +160,7 @@ public class RootLayoutController {
 
 	ObservableList<CellLayoutPersonnel> employeeRecords = FXCollections.observableArrayList();
 	ObservableList<CellLayoutAnimal> animalRecords = FXCollections.observableArrayList();
-
+	Image defaultImage = new Image("/application/AddImageImage.png");
 	private final String password = "person records!!";
 
 	public void initialize() {
@@ -173,7 +173,7 @@ public class RootLayoutController {
 			btnSaveEdit.setDisable(true);
 			btnSave.setDisable(false);
 			btnDelete.setDisable(true);
-			Image defaultImage = new Image("/application/AddImageImage.png");
+			
 			imgAnimalImage.setImage(defaultImage);
 			imgIDCard.setImage(defaultImage);
 		}
@@ -184,6 +184,14 @@ public class RootLayoutController {
 		if (basicView.isSelected() == true) {
 			if (animalIndex != -1) {
 				BasicAnimal animal = animalRecords.get(animalIndex).getAnimal();
+				imgAnimalImage.setImage(new Image(animal.getPictureLink()));
+				txtName.setText(animal.getAnimalName());
+				txtAnimalType.setText(animal.getAnimalType());
+				txtWeight.setText(String.valueOf(animal.getWeight()));
+				txtBreed.setText(animal.getAnimalBreed());
+				btnSaveEdit.setDisable(false);
+				btnSave.setDisable(true);
+				btnDelete.setDisable(false);
 			}
 		}
 	}
@@ -246,6 +254,7 @@ public class RootLayoutController {
 			e.printStackTrace();
 		}
 	}
+	
 	public void writeFilePersonnel(String name) {
 		FileOutputStream fileOutputStream;
 		ObjectOutputStream objectOutputStream;
