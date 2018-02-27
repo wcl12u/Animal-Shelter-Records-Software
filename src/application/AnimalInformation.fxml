@@ -2,13 +2,12 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1265.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1260.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CellLayoutAnimalController">
    <children>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="421.0" spacing="15.0">
          <children>
@@ -18,11 +17,7 @@
                </font>
             </Label>
             <Separator prefWidth="200.0" />
-            <ImageView fitHeight="284.0" fitWidth="417.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image />
-               </image>
-            </ImageView>
+            <ImageView fx:id="imgviewAnimal" fitHeight="276.0" fitWidth="415.0" pickOnBounds="true" preserveRatio="true" />
             <Separator prefWidth="200.0" />
             <Label text="Name" />
             <Label fx:id="lblAnimalName" text="Label" />

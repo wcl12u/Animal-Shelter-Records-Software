@@ -183,7 +183,7 @@ public class RootLayoutController {
 	public void handleBasicView() {
 		if (basicView.isSelected() == true) {
 			if (animalIndex != -1) {
-				BasicAnimal animal = animalRecords.get(animalIndex);
+				BasicAnimal animal = animalRecords.get(animalIndex).getAnimal();
 			}
 		}
 	}
