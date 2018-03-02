@@ -86,6 +86,8 @@ public class RootLayoutController {
 	@FXML
 	private TextField txtDoctorName;
 	@FXML
+	private Label lblStatus;
+	@FXML
 	private ChoiceBox<String> chbxAnimalStatus;
 	@FXML
 	private TextArea txtareaNotes;
@@ -157,16 +159,23 @@ public class RootLayoutController {
 	private Button btnNextEmployeeView;
 	@FXML
 	private ListView<CellLayoutAnimal> listviewAnimal;
+	@FXML
+	private Button btnPreviousAnimalView;
+	@FXML
+	private Button btnNextAnimalView;
 
 	ObservableList<CellLayoutPersonnel> employeeRecords = FXCollections.observableArrayList();
 	ObservableList<CellLayoutAnimal> animalRecords = FXCollections.observableArrayList();
 	Image defaultImage = new Image("/application/AddImageImage.png");
 	private final String password = "person records!!";
+	private String fileAnimalName;
+	private String filePersonnelName;
 
 	public void initialize() {
 
 		personnelEdit.setDisable(true);
 		//listviewPersonnel.setItems(employeeRecords);
+		listviewAnimal.setItems(animalRecords);
 		root.getChildren();
 
 		if (animalRecords.size() == 0) {
@@ -184,7 +193,7 @@ public class RootLayoutController {
 		if (basicView.isSelected() == true) {
 			if (animalIndex != -1) {
 				BasicAnimal animal = animalRecords.get(animalIndex).getAnimal();
-				imgAnimalImage.setImage(new Image(animal.getPictureLink()));
+				imgAnimalImage.setImage(animal.getAnimalImage());
 				txtName.setText(animal.getAnimalName());
 				txtAnimalType.setText(animal.getAnimalType());
 				txtWeight.setText(String.valueOf(animal.getWeight()));
@@ -192,6 +201,113 @@ public class RootLayoutController {
 				btnSaveEdit.setDisable(false);
 				btnSave.setDisable(true);
 				btnDelete.setDisable(false);
+			}
+			else {
+				animalIndex = 0;
+				handleNewAnimal();
+			}
+		}
+		else if (vetView.isSelected() == true) {
+			
+		}
+		handleIncrementDisable();
+	}
+	
+	@FXML
+	public void handleSaveBasic() {
+		
+		boolean filled = true;
+		BasicAnimal animal = new BasicAnimal();
+		
+		if(!imgAnimalImage.getImage().equals(defaultImage)) {
+			animal.setAnimalImage(imgAnimalImage.getImage());
+		}
+		
+		if(stringSafetyCheck(txtName) == true) {
+			animal.setAnimalName(txtName.getText());
+			txtName.setPromptText("");
+		}
+		else {
+			filled = false;
+		}
+		
+		if (stringSafetyCheck(txtAnimalType) == true) {
+			animal.setAnimalType(txtAnimalType.getText());
+			txtAnimalType.setPromptText("");
+		}
+		else {
+			filled = false;
+		}
+		
+		if(doubleSafteyCheck(txtWeight) == true) {
+			animal.setWeight(Double.valueOf(txtWeight.getText()));
+			txtWeight.setPromptText("");
+		}
+		else {
+			filled = false;
+		}
+		
+		if(stringSafetyCheck(txtBreed) == true) {
+			animal.setAnimalBreed(txtBreed.getText());
+			txtBreed.setPromptText("");
+		}
+		else {
+			filled = false;
+		}
+		
+		if (filled != false) {
+			CellLayoutAnimal cellAnimal = new CellLayoutAnimal(animal);
+			animalRecords.add(cellAnimal);
+			//writeFileAnimal(fileAnimalName);
+			btnSave.setDisable(true);
+			btnSaveEdit.setDisable(false);
+			btnDelete.setDisable(false);
+			animalIndex = animalRecords.size() - 1;
+		}
+		
+	}
+	
+	@FXML
+	public void handleNewAnimal() {
+		btnDelete.setDisable(true);
+		btnSaveEdit.setDisable(true);
+		btnSave.setDisable(false);
+		imgAnimalImage.setImage(defaultImage);
+		txtName.clear();
+		txtAnimalType.clear();
+		txtWeight.clear();
+		txtBreed.clear();
+	}
+	
+	
+	@FXML
+	public void handleIncrementDisable() {
+		if (basicView.isSelected() == true) {
+			if (animalIndex-1 <= -1) {
+				btnPrevious.setDisable(true);
+			}
+			else {
+				btnPrevious.setDisable(false);
+			}
+			if (animalIndex+1 >= animalRecords.size()) {
+				btnNext.setDisable(true);
+			}
+			else {
+				btnNext.setDisable(false);
+			}
+		}
+		else if (viewAnimalRecords.isSelected() == true) {
+			if (animalIndex+1 >= animalRecords.size()) {
+				btnNextAnimalView.setDisable(true);
+			}
+			else {
+				btnNextAnimalView.setDisable(false);
+			}
+			if (animalIndex-1 <= -1) {
+				btnPreviousAnimalView.setDisable(true);
+			}
+			else {
+				btnPreviousAnimalView.setDisable(false);
 			}
 		}
 	}
@@ -274,7 +390,83 @@ public class RootLayoutController {
 		}
 	}
 
-	
+
+	//Safety check for string fields
+		public boolean stringSafetyCheck(TextField txtField) {
+			boolean safe;
+			if (txtField.getText().isEmpty() == false) {
+				safe = true;
+				return safe;
+			} 
+			else {
+				txtField.clear();
+				txtField.setPromptText("Enter a value");
+				safe = false;
+				return safe;
+			} 
+		}
+
+		//Safety check for double fields
+		public boolean doubleSafteyCheck(TextField txtField) {
+			boolean safe;
+			double temp;
+			try {
+				temp = Double.valueOf(txtField.getText());
+				safe = true;
+				return safe;
+			} catch (Exception e) {
+				txtField.clear();
+				txtField.setPromptText("Enter a value");
+				safe = false;
+				return safe;
+			}
+		}
+
+		//Safety check for integer fields
+		public boolean integerSafetyCheck(TextField txtField) {
+			boolean safe;
+			Integer temp;
+			try {
+				temp = Integer.valueOf(txtField.getText());
+				safe = true;
+				return safe;
+			} catch (Exception e) {
+				txtField.clear();
+				txtField.setPromptText("Enter a value");
+				safe = false;
+				return safe;
+			} 
+		}
+
+		//Safety check for local date fields
+		public boolean dateSafetyCheck(DatePicker datePicker) {
+			boolean safe;
+			String temp;
+			try {
+				temp = datePicker.getValue().toString();
+				safe = true;
+				return safe;
+			} catch (Exception e) {
+				datePicker.setValue(null);
+				datePicker.setPromptText("Enter Date");
+				safe = false;
+				return safe;
+			}
+		}
+
+		public boolean choiceSafetyCheck(ChoiceBox<String> choiceBox) {
+			boolean safe;
+			boolean temp;
+			try {
+				temp = choiceBox.getValue().isEmpty();
+				safe = true;
+				return safe;
+			} catch (Exception e) {
+				lblStatus.setText("Animal Status: Please Select a Status");
+				safe = false;
+				return safe;
+			}
+		}
 
 	public void setMainApp(Main mainApp) {
 		this.mainApp = mainApp;

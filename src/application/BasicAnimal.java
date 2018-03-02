@@ -1,5 +1,7 @@
 package application;
 
+import javafx.scene.image.Image;
+
 /*
 Thaddeus Albert Bartz
 William Christian Leonard
@@ -10,7 +12,8 @@ February 12, 2018
 
 public class BasicAnimal {
 
-	private String animalName, animalType, animalBreed, pictureLink;
+	private String animalName, animalType, animalBreed;
+	private Image animalImage;
 	private double weight;
 	private Owner owner;
 	private VetStatus vetStatus;
@@ -19,27 +22,27 @@ public class BasicAnimal {
 	public BasicAnimal() {
 		this.animalType = "No Entry";
 		this.animalBreed = "No Entry";
-		this.pictureLink = ""; //some default oops clipart
+		this.animalImage = new Image("/application/AddImageImage.png");
 		this.weight = 0.00;
 		owner = new Owner();
 		vetStatus = new VetStatus();
 	}
 
 	//Full
-	public BasicAnimal(String animalType, String breed, String pictureLink, int weight) {
+	public BasicAnimal(String animalType, String breed, Image pictureLink, int weight) {
 		this.animalType = animalType;
 		this.animalBreed = breed;
-		this.pictureLink = pictureLink;
+		this.animalImage = pictureLink;
 		this.weight = weight;
 		owner = new Owner();
 		vetStatus = new VetStatus();
 	}
 	
 	//No Weight
-	public BasicAnimal(String animalType, String animalBreed, String pictureLink) {
+	public BasicAnimal(String animalType, String animalBreed, Image pictureLink) {
 		this.animalType = animalType;
 		this.animalBreed = animalBreed;
-		this.pictureLink = pictureLink;
+		this.animalImage = pictureLink;
 		this.weight = 0.00;
 		owner = new Owner();
 		vetStatus = new VetStatus();
@@ -50,7 +53,7 @@ public class BasicAnimal {
 	public BasicAnimal(String animalType, String animalBreed, int weight) {
 		this.animalType = animalType;
 		this.animalBreed = animalBreed;
-		this.pictureLink = "";// some default oops clipart
+		this.animalImage = new Image("/application/AddImageImage.png");
 		this.weight = weight;
 		owner = new Owner();
 		vetStatus = new VetStatus();
@@ -60,7 +63,7 @@ public class BasicAnimal {
 	public BasicAnimal(String animalType, String animalBreed) {
 		this.animalType = animalType;
 		this.animalBreed = animalBreed;
-		this.pictureLink = "";// some default oops clipart
+		this.animalImage = new Image("/application/AddImageImage.png");
 		this.weight = 0.00;
 		owner = new Owner();
 		vetStatus = new VetStatus();
@@ -70,7 +73,7 @@ public class BasicAnimal {
 	public BasicAnimal(String animalType, int weight) {
 		this.animalType = animalType;
 		this.animalBreed = "No Entry";
-		this.pictureLink = "";// some default oops clipart
+		this.animalImage = new Image("/application/AddImageImage.png");
 		this.weight = weight;
 		owner = new Owner();
 		vetStatus = new VetStatus();
@@ -80,7 +83,7 @@ public class BasicAnimal {
 	public BasicAnimal(String animalType) {
 		this.animalType = animalType;
 		this.animalBreed = "No Entry";
-		this.pictureLink = "";// some default oops clipart
+		this.animalImage = new Image("/application/AddImageImage.png");
 		this.weight = 0.00;
 		owner = new Owner();
 		vetStatus = new VetStatus();
@@ -102,12 +105,12 @@ public class BasicAnimal {
 		this.animalBreed = animalBreed;
 	}
 
-	public String getPictureLink() {
-		return pictureLink;
+	public Image getAnimalImage() {
+		return animalImage;
 	}
 
-	public void setPictureLink(String pictureLink) {
-		this.pictureLink = pictureLink;
+	public void setAnimalImage(Image pictureLink) {
+		this.animalImage = pictureLink;
 	}
 
 	public double getWeight() {

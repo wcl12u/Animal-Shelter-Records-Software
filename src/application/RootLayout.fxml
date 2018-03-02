@@ -34,7 +34,7 @@
 								<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
 									<children>
 										<Button fx:id="btnNew" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="New" />
-										<Button fx:id="btnSave" layoutX="592.0" layoutY="28.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="Save" />
+										<Button fx:id="btnSave" layoutX="592.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleSaveBasic" prefHeight="64.0" prefWidth="116.0" text="Save" />
 										<Button fx:id="btnSaveEdit" layoutX="650.0" layoutY="28.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="Save Edit" />
 										<Button fx:id="btnDelete" layoutX="476.0" layoutY="28.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="Delete" />
 										<Button fx:id="btnPrevious" layoutX="766.0" layoutY="28.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="Previous" />
@@ -98,7 +98,7 @@
                                           <TextField fx:id="txtVetAddress" />
                                           <Label text="Doctor's Name" />
                                           <TextField fx:id="txtDoctorName" />
-                                          <Label text="Animal Status" />
+                                          <Label fx:id="lblStatus" text="Animal Status" />
                                           <ChoiceBox fx:id="chbxAnimalStatus" prefWidth="150.0" />
                                           <Label text="Veterinarian Notes" />
             												<TextArea fx:id="txtareaNotes" prefHeight="671.0" prefWidth="1280.0" />
@@ -288,8 +288,8 @@
                      <bottom>
                         <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                           <buttons>
-                            <Button mnemonicParsing="false" text="Previous" />
-                              <Button mnemonicParsing="false" text="Next" />
+                            <Button fx:id="btnPreviousAnimalView" mnemonicParsing="false" text="Previous" />
+                              <Button fx:id="btnNextAnimalView" mnemonicParsing="false" text="Next" />
                           </buttons>
                         </ButtonBar>
                      </bottom>
