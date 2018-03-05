@@ -259,7 +259,7 @@ public class RootLayoutController {
 		if(ownerView.isSelected() == true) {
 			if(animalRecords.size() != 0) {
 				Owner animalOwner = animalRecords.get(animalIndex).getAnimal().getOwner();
-				imgIDCard.setImage(animalOwner.getOwnerID());
+				imgIDCard.setImage(new Image(animalOwner.getOwnerID()));
 				txtOwnerName.setText(animalOwner.getOwnerName());
 				txtOwnerAge.setText(String.valueOf(animalOwner.getOwnerAge()));
 				dateAdoptionDate.setValue(animalOwner.getDateOfAdoption());
@@ -344,13 +344,69 @@ public class RootLayoutController {
 		if (filled != false) {
 			CellLayoutAnimal cellAnimal = new CellLayoutAnimal(animal);
 			animalRecords.add(cellAnimal);
-			//writeFileAnimal(fileAnimalName);
+			writeFileAnimal(fileAnimalName);
 			btnSave.setDisable(true);
 			btnSaveEdit.setDisable(false);
 			btnDelete.setDisable(false);
 			vetView.setDisable(false);
 			ownerView.setDisable(false);
 			animalIndex = animalRecords.size() - 1;
+		}
+		
+	}
+	
+	@FXML
+	public void handleVetSave() {
+		
+		boolean filled = true;
+		BasicAnimal animal = animalRecords.get(animalIndex).getAnimal();
+		VetStatus vetInfo = new VetStatus();
+		
+		if(stringSafetyCheck(txtVetName) == true) {
+			vetInfo.setVetName(txtVetName.getText());
+			txtVetName.setPromptText("");
+		}
+		else {
+			filled = false;
+		}
+		
+		if(stringSafetyCheck(txtVetAddress) == true) {
+			vetInfo.setVetLocation(txtVetAddress.getText());
+			txtVetAddress.setPromptText("");
+		}
+		else {
+			filled = false;
+		}
+		
+		if(stringSafetyCheck(txtDoctorName) == true) {
+			vetInfo.setDoctorName(txtDoctorName.getText());
+			txtDoctorName.setPromptText("");
+		}
+		else {
+			filled = false;
+		}
+		
+		if(choiceSafetyCheck(chbxAnimalStatus) == true) {
+			vetInfo.setAnimalStatus(chbxAnimalStatus.getValue());
+			lblStatus.setText("Animal Status");
+		}
+		else {
+			filled = false;
+		}
+		
+		if(stringSafetyCheck(txtareaNotes) == true) {
+			vetInfo.setAnimalNotes(txtareaNotes.getText());
+			txtareaNotes.setPromptText("");
+		}
+		else {
+			filled = false;
+		}
+		
+		if(filled != false) {
+			animal.setVetStatus(vetInfo);
+			CellLayoutAnimal cellLayoutAnimal = new CellLayoutAnimal(animal);
+			animalRecords.set(animalIndex, cellLayoutAnimal);
+			writeFileAnimal(fileAnimalName);
 		}
 		
 	}
@@ -493,6 +549,20 @@ public class RootLayoutController {
 			else {
 				txtField.clear();
 				txtField.setPromptText("Enter a value");
+				safe = false;
+				return safe;
+			} 
+		}
+		
+		public boolean stringSafetyCheck(TextArea textArea) {
+			boolean safe;
+			if (textArea.getText().isEmpty() == false) {
+				safe = true;
+				return safe;
+			} 
+			else {
+				textArea.clear();
+				textArea.setPromptText("Enter Notes");
 				safe = false;
 				return safe;
 			} 

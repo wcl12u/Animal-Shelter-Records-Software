@@ -1,5 +1,7 @@
 package application;
 
+import java.io.Serializable;
+
 /*
 Thaddeus Albert Bartz
 William Christian Leonard
@@ -8,8 +10,9 @@ PSET6-0 SuperProject
 February 12, 2018
 */
 
-public class VetStatus {
+public class VetStatus implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private String animalStatus;
 	private String animalNotes;
 	private String doctorName;

@@ -9,16 +9,17 @@ February 12, 2018
 */
 
 import java.time.LocalDate;
-
+import java.io.Serializable;
 import javafx.scene.image.Image;
 
-public class Owner {
+public class Owner implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private String ownerName;
 	private String ownerAddress;
 	private String ownerPhoneNumber;
 	private int ownerAge;
-	private Image ownerID;
+	private String ownerID;
 	private LocalDate dateOfAdoption;
 	private String ownerStateOfResidence;
 	
@@ -28,12 +29,12 @@ public class Owner {
 		this.ownerAddress = "No Data Entered";
 		this.ownerPhoneNumber = "No Data Entered";
 		this.ownerAge = -1;
-		this.ownerID = new Image("/application/AddImageImage.png");
+		this.ownerID = "/application/AddImageImage.png";
 		this.dateOfAdoption = LocalDate.EPOCH;
 		this.ownerStateOfResidence = "No Data Entered";
 		}
 	//Full
-	public Owner(String ownerName, String ownerAddress, String ownerPhoneNumber, int ownerAge, Image ownerIDLink,
+	public Owner(String ownerName, String ownerAddress, String ownerPhoneNumber, int ownerAge, String ownerIDLink,
 			LocalDate dateOfAdoption, String ownerStateOfResidence) {
 		this.ownerName = ownerName;
 		this.ownerAddress = ownerAddress;
@@ -78,10 +79,10 @@ public class Owner {
 	public void setOwnerAge(int ownerAge) {
 		this.ownerAge = ownerAge;
 	}
-	public Image getOwnerID() {
+	public String getOwnerID() {
 		return ownerID;
 	}
-	public void setOwnerID(Image ownerIDLink) {
+	public void setOwnerID(String ownerIDLink) {
 		this.ownerID = ownerIDLink;
 	}
 	public LocalDate getDateOfAdoption() {

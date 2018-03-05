@@ -78,7 +78,7 @@
 				</AnchorPane>
 			</content>
 		</Tab>
-		<Tab fx:id="vetView" closable="false" onSelectionChanged="#handleVetView" text="Vet Notes">
+		<Tab fx:id="vetView" closable="false" onSelectionChanged="#handleVetView" text="Veterinarian Information">
 			<content>
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 					<children>
@@ -112,7 +112,7 @@
                      <bottom>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Button fx:id="btnSaveNotes" mnemonicParsing="false" prefHeight="69.0" prefWidth="131.0" text="Save" />
+                              <Button fx:id="btnSaveNotes" mnemonicParsing="false" onAction="#handleVetSave" prefHeight="69.0" prefWidth="131.0" text="Save" />
                            </children>
                         </HBox>
                      </bottom>
