@@ -202,7 +202,7 @@ public class RootLayoutController {
 		if (basicView.isSelected() == true) {
 			if (animalRecords.size() != 0) {
 				BasicAnimal animal = animalRecords.get(animalIndex).getAnimal();
-				imgAnimalImage.setImage(animal.getAnimalImage());
+				imgAnimalImage.setImage(new Image(animal.getAnimalImage()));
 				txtName.setText(animal.getAnimalName());
 				txtAnimalType.setText(animal.getAnimalType());
 				txtWeight.setText(String.valueOf(animal.getWeight()));
@@ -306,7 +306,7 @@ public class RootLayoutController {
 		BasicAnimal animal = new BasicAnimal();
 		
 		if(!imgAnimalImage.getImage().equals(defaultImage)) {
-			animal.setAnimalImage(imgAnimalImage.getImage());
+			animal.setAnimalImage(imgAnimalImage.getImage().getUrl());
 		}
 		
 		if(stringSafetyCheck(txtName) == true) {

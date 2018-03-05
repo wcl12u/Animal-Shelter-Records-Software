@@ -14,8 +14,7 @@ import javafx.scene.image.Image;
 public class BasicAnimal implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private String animalName, animalType, animalBreed;
-	private Image animalImage;
+	private String animalName, animalType, animalBreed, animalImage;
 	private double weight;
 	private Owner owner;
 	private VetStatus vetStatus;
@@ -24,14 +23,14 @@ public class BasicAnimal implements Serializable{
 	public BasicAnimal() {
 		this.animalType = "No Entry";
 		this.animalBreed = "No Entry";
-		this.animalImage = new Image("/application/AddImageImage.png");
+		this.animalImage = "/application/AddImageImage.png";
 		this.weight = 0.00;
 		owner = new Owner();
 		vetStatus = new VetStatus();
 	}
 
 	//Full
-	public BasicAnimal(String animalType, String breed, Image pictureLink, int weight) {
+	public BasicAnimal(String animalType, String breed, String pictureLink, int weight) {
 		this.animalType = animalType;
 		this.animalBreed = breed;
 		this.animalImage = pictureLink;
@@ -41,7 +40,7 @@ public class BasicAnimal implements Serializable{
 	}
 	
 	//No Weight
-	public BasicAnimal(String animalType, String animalBreed, Image pictureLink) {
+	public BasicAnimal(String animalType, String animalBreed, String pictureLink) {
 		this.animalType = animalType;
 		this.animalBreed = animalBreed;
 		this.animalImage = pictureLink;
@@ -55,7 +54,7 @@ public class BasicAnimal implements Serializable{
 	public BasicAnimal(String animalType, String animalBreed, int weight) {
 		this.animalType = animalType;
 		this.animalBreed = animalBreed;
-		this.animalImage = new Image("/application/AddImageImage.png");
+		this.animalImage = "/application/AddImageImage.png";
 		this.weight = weight;
 		owner = new Owner();
 		vetStatus = new VetStatus();
@@ -65,7 +64,7 @@ public class BasicAnimal implements Serializable{
 	public BasicAnimal(String animalType, String animalBreed) {
 		this.animalType = animalType;
 		this.animalBreed = animalBreed;
-		this.animalImage = new Image("/application/AddImageImage.png");
+		this.animalImage = "/application/AddImageImage.png";
 		this.weight = 0.00;
 		owner = new Owner();
 		vetStatus = new VetStatus();
@@ -75,7 +74,7 @@ public class BasicAnimal implements Serializable{
 	public BasicAnimal(String animalType, int weight) {
 		this.animalType = animalType;
 		this.animalBreed = "No Entry";
-		this.animalImage = new Image("/application/AddImageImage.png");
+		this.animalImage = "/application/AddImageImage.png";
 		this.weight = weight;
 		owner = new Owner();
 		vetStatus = new VetStatus();
@@ -85,7 +84,7 @@ public class BasicAnimal implements Serializable{
 	public BasicAnimal(String animalType) {
 		this.animalType = animalType;
 		this.animalBreed = "No Entry";
-		this.animalImage = new Image("/application/AddImageImage.png");
+		this.animalImage = "/application/AddImageImage.png";
 		this.weight = 0.00;
 		owner = new Owner();
 		vetStatus = new VetStatus();
@@ -107,11 +106,11 @@ public class BasicAnimal implements Serializable{
 		this.animalBreed = animalBreed;
 	}
 
-	public Image getAnimalImage() {
+	public String getAnimalImage() {
 		return animalImage;
 	}
 
-	public void setAnimalImage(Image pictureLink) {
+	public void setAnimalImage(String pictureLink) {
 		this.animalImage = pictureLink;
 	}
 
