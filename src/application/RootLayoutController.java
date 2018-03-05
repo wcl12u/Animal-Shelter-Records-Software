@@ -173,9 +173,9 @@ public class RootLayoutController {
 	
 	private final String password = "person records!!";
 	
-	private String fileAnimalName;
+	private String fileAnimalName = "Animals";
 	
-	private String filePersonnelName;
+	private String filePersonnelName = "Personnel";
 
 	public void initialize() {
 
@@ -450,11 +450,11 @@ public class RootLayoutController {
 		try {
 			fileOutputStream = new FileOutputStream(name);
 			objectOutputStream = new ObjectOutputStream(fileOutputStream);
-			for(CellLayoutPersonnel element: employeeRecords) {
-				objectOutputStream.writeObject(element.getPersonnel());
+			for(CellLayoutAnimal element: animalRecords) {
+				objectOutputStream.writeObject(element.getAnimal());
 			}
-			FileOutputStream fileperson = new FileOutputStream(new File("Personnel_Length"));
-			fileperson.write(employeeRecords.size());
+			FileOutputStream fileperson = new FileOutputStream(new File("Animal_Length"));
+			fileperson.write(animalRecords.size());
 			fileperson.close();
 			fileOutputStream.close();
 			

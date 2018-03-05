@@ -1,7 +1,5 @@
 package application;
 
-import javafx.scene.image.Image;
-
 /*
 Thaddeus Albert Bartz
 William Christian Leonard
@@ -10,8 +8,12 @@ PSET6-0 SuperProject
 February 12, 2018
 */
 
-public class BasicAnimal {
+import java.io.Serializable;
+import javafx.scene.image.Image;
 
+public class BasicAnimal implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	private String animalName, animalType, animalBreed;
 	private Image animalImage;
 	private double weight;
