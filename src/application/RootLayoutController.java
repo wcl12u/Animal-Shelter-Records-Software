@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
 import javafx.collections.FXCollections;
@@ -40,6 +41,7 @@ public class RootLayoutController {
 	private Main mainApp;
 
 	private int animalIndex = -1;
+	private int personnelIndex = -1;
 	@FXML
 	private AnchorPane root;
 	@FXML
@@ -176,6 +178,8 @@ public class RootLayoutController {
 	private String fileAnimalName = "Animals";
 	
 	private String filePersonnelName = "Personnel";
+	
+	private boolean unlocked = false;
 
 	public void initialize() {
 
@@ -454,8 +458,65 @@ public class RootLayoutController {
 				btnPreviousAnimalView.setDisable(false);
 			}
 		}
+		else if(manageView.isSelected() == true) {
+			if(personnelIndex-1 <= -1) {
+				btnPreviousEmployee.setDisable(true);
+			}
+			else {
+				btnPreviousEmployee.setDisable(false);
+			}
+			if(personnelIndex+1 >= employeeRecords.size()) {
+				btnNextEmployee.setDisable(true);
+			}
+			else {
+				btnNextEmployee.setDisable(false);
+			}
+		}
+		else if(viewEmployeeRecords.isSelected() == true) {
+			if(personnelIndex+1 >= employeeRecords.size()) {
+				btnNextEmployeeView.setDisable(true);
+			}
+			else {
+				btnNextEmployeeView.setDisable(false);
+			}
+			if(personnelIndex-1 <= -1) {
+				btnPreviousEmployeeView.setDisable(true);
+			}
+			else {
+				btnPreviousEmployeeView.setDisable(false);
+			}
+		}
 	}
 
+	/*public void readFile() {
+		FileInputStream fileInputStream;
+		ObjectInputStream objectInputStream;
+		try {
+			fileInputStream = new FileInputStream("Members");
+			if (fileInputStream.available() > 0) {
+				objectInputStream = new ObjectInputStream(fileInputStream);
+				FileInputStream fileInputStream2 = new FileInputStream("Length");
+				int len = fileInputStream2.read();
+				fileInputStream2.close();
+				for (int x = 0; x < len; x++) {
+					WritingMember temp = (WritingMember) objectInputStream.readObject();
+					Member temp2 = new Member();
+					temp2.setFirstName(temp.getFirstName());
+					temp2.setLastName(temp.getLastName());
+					temp2.setPersonType(temp.getPersonType());
+					temp2.setFees(temp.getFees());
+					CellLayout temp3 = new CellLayout(temp2);
+					records.add(temp3);
+				}
+				fileInputStream.close();
+				objectInputStream.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}*/
+	
 	@FXML
 	public void handleIDDrapOver(DragEvent dragEvent) {
 		Dragboard board = dragEvent.getDragboard();
