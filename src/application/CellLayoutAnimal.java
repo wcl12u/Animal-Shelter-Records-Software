@@ -19,7 +19,7 @@ public class CellLayoutAnimal extends Pane {
 	private int ownerAge;
 	private LocalDate dateOfAdoption;
 	private double animalWeight;
-	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM dd, yyyy");
+	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy");
 	
 	public CellLayoutAnimal(BasicAnimal animal) {
 		Node view = null;

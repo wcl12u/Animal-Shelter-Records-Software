@@ -14,7 +14,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
-import java.util.logging.Handler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -165,10 +164,17 @@ public class RootLayoutController {
 	private Button btnNextAnimalView;
 
 	ObservableList<CellLayoutPersonnel> employeeRecords = FXCollections.observableArrayList();
+	
 	ObservableList<CellLayoutAnimal> animalRecords = FXCollections.observableArrayList();
-	Image defaultImage = new Image("/application/AddImageImage.png");
+	
+	final Image defaultImage = new Image("/application/AddImageImage.png");
+	
+	final ObservableList<String> status = FXCollections.observableArrayList("Healthy", "Stable", "Critical");
+	
 	private final String password = "person records!!";
+	
 	private String fileAnimalName;
+	
 	private String filePersonnelName;
 
 	public void initialize() {
@@ -177,12 +183,15 @@ public class RootLayoutController {
 		//listviewPersonnel.setItems(employeeRecords);
 		listviewAnimal.setItems(animalRecords);
 		root.getChildren();
+		
+		chbxAnimalStatus.setItems(status);
 
 		if (animalRecords.size() == 0) {
 			btnSaveEdit.setDisable(true);
 			btnSave.setDisable(false);
 			btnDelete.setDisable(true);
-			
+			vetView.setDisable(true);
+			ownerView.setDisable(true);
 			imgAnimalImage.setImage(defaultImage);
 			imgIDCard.setImage(defaultImage);
 		}
@@ -191,7 +200,7 @@ public class RootLayoutController {
 	@FXML
 	public void handleBasicView() {
 		if (basicView.isSelected() == true) {
-			if (animalIndex != -1) {
+			if (animalRecords.size() != 0) {
 				BasicAnimal animal = animalRecords.get(animalIndex).getAnimal();
 				imgAnimalImage.setImage(animal.getAnimalImage());
 				txtName.setText(animal.getAnimalName());
@@ -201,6 +210,8 @@ public class RootLayoutController {
 				btnSaveEdit.setDisable(false);
 				btnSave.setDisable(true);
 				btnDelete.setDisable(false);
+				vetView.setDisable(false);
+				ownerView.setDisable(false);
 			}
 			else {
 				animalIndex = 0;
@@ -208,9 +219,84 @@ public class RootLayoutController {
 			}
 		}
 		else if (vetView.isSelected() == true) {
-			
+			handleVetView();
+		}
+		else if (ownerView.isSelected() == true) {
+			handleOwnerView();
+		}
+		else if (viewAnimalRecords.isSelected() == true) {
+			handleAnimalReportView();
 		}
 		handleIncrementDisable();
+	}
+	
+	@FXML
+	public void handleVetView() {
+		if(vetView.isSelected() == true) {
+			if(animalRecords.size() != 0) {
+				BasicAnimal animal = animalRecords.get(animalIndex).getAnimal();			
+				lblDogName.setText(animal.getAnimalName());
+				txtVetName.setText(animal.getVetStatus().getVetName());
+				txtVetAddress.setText(animal.getVetStatus().getVetLocation());
+				txtDoctorName.setText(animal.getVetStatus().getDoctorName());
+				chbxAnimalStatus.setValue(animal.getVetStatus().getAnimalStatus());
+				txtareaNotes.setText(animal.getVetStatus().getAnimalNotes());
+			}
+		}
+		else if (basicView.isSelected() == true) {
+			handleBasicView();
+		}
+		else if (ownerView.isSelected() == true) {
+			handleOwnerView();
+		}
+		else if (viewAnimalRecords.isSelected() == true) {
+			handleAnimalReportView();
+		}
+	}
+	
+	@FXML
+	public void handleOwnerView() {
+		if(ownerView.isSelected() == true) {
+			if(animalRecords.size() != 0) {
+				Owner animalOwner = animalRecords.get(animalIndex).getAnimal().getOwner();
+				imgIDCard.setImage(animalOwner.getOwnerID());
+				txtOwnerName.setText(animalOwner.getOwnerName());
+				txtOwnerAge.setText(String.valueOf(animalOwner.getOwnerAge()));
+				dateAdoptionDate.setValue(animalOwner.getDateOfAdoption());
+				txtAddress.setText(animalOwner.getOwnerAddress());
+				txtStateOfResidence.setText(animalOwner.getOwnerStateOfResidence());
+				txtPhoneNum.setText(animalOwner.getOwnerPhoneNumber());
+			}
+		}
+		else if(basicView.isSelected() == true) {
+			handleBasicView();
+		}
+		else if(vetView.isSelected() == true) {
+			handleVetView();
+		}
+		else if(viewAnimalRecords.isSelected() == true) {
+			handleAnimalReportView();
+		}
+	}
+	
+	@FXML
+	public void handleAnimalReportView() {
+		if (viewAnimalRecords.isSelected() == true) {
+			for(CellLayoutAnimal element: animalRecords) {
+				element.setView();
+			}
+			handleIncrementDisable();
+			listviewAnimal.scrollTo(animalIndex);
+		}
+		else if(basicView.isSelected() == true){
+			handleBasicView();
+		}
+		else if(vetView.isSelected() == true) {
+			handleVetView();
+		}
+		else if(ownerView.isSelected() == true) {
+			handleOwnerView();
+		}
 	}
 	
 	@FXML
@@ -262,6 +348,8 @@ public class RootLayoutController {
 			btnSave.setDisable(true);
 			btnSaveEdit.setDisable(false);
 			btnDelete.setDisable(false);
+			vetView.setDisable(false);
+			ownerView.setDisable(false);
 			animalIndex = animalRecords.size() - 1;
 		}
 		
@@ -362,9 +450,13 @@ public class RootLayoutController {
 		try {
 			fileOutputStream = new FileOutputStream(name);
 			objectOutputStream = new ObjectOutputStream(fileOutputStream);
-			for(/*does not exist*/) {
-				
+			for(CellLayoutPersonnel element: employeeRecords) {
+				objectOutputStream.writeObject(element.getPersonnel());
 			}
+			FileOutputStream fileperson = new FileOutputStream(new File("Personnel_Length"));
+			fileperson.write(employeeRecords.size());
+			fileperson.close();
+			fileOutputStream.close();
 			
 		} catch (Exception e) {
 			e.printStackTrace();

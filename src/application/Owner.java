@@ -30,7 +30,7 @@ public class Owner {
 		this.ownerAge = -1;
 		this.ownerID = new Image("/application/AddImageImage.png");
 		this.dateOfAdoption = LocalDate.EPOCH;
-		this.ownerStateOfResidence = "";
+		this.ownerStateOfResidence = "No Data Entered";
 		}
 	//Full
 	public Owner(String ownerName, String ownerAddress, String ownerPhoneNumber, int ownerAge, Image ownerIDLink,

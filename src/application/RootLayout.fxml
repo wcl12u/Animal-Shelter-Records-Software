@@ -25,7 +25,7 @@
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@application.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RootLayoutController">
 	<tabs>
-		<Tab fx:id="basicView" closable="false" text="Animal Information">
+		<Tab fx:id="basicView" closable="false" onSelectionChanged="#handleBasicView" text="Animal Information">
 			<content>
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 					<children>
@@ -78,7 +78,7 @@
 				</AnchorPane>
 			</content>
 		</Tab>
-		<Tab fx:id="vetView" closable="false" text="Vet Notes">
+		<Tab fx:id="vetView" closable="false" onSelectionChanged="#handleVetView" text="Vet Notes">
 			<content>
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 					<children>
@@ -280,7 +280,7 @@
             </AnchorPane>
         </content>
       </Tab>
-      <Tab fx:id="viewAnimalRecords" text="Animal Information Report">
+      <Tab fx:id="viewAnimalRecords" onSelectionChanged="#handleAnimalReportView" text="Animal Information Report">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
