@@ -26,7 +26,7 @@
             <Label fx:id="lblDateOfEmployement" text="Label" />
             <Label text="Wage" />
             <Label fx:id="lblWage" text="Label" />
-            <Label text="Employed?" />
+            <Label text="Employment Status" />
             <Label fx:id="lblIsEmployed" text="Label" />
          </children>
       </VBox>

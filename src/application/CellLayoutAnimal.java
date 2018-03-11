@@ -14,7 +14,8 @@ public class CellLayoutAnimal extends Pane {
 	private CellLayoutAnimalController controller;
 	private BasicAnimal animal;
 	private String animalName,animalType,animalBreed,hospitalName,hospitalAddress,doctorName,
-	animalStatus,vetNotes,ownerName,ownerAddress,stateOfResidence,ownerPhoneNumber, animalImage;
+	animalStatus,vetNotes,ownerName,ownerAddress,stateOfResidence,ownerPhoneNumber;
+	private Image animalImage;
 	private int ownerAge;
 	private LocalDate dateOfAdoption;
 	private double animalWeight;
@@ -77,7 +78,7 @@ public class CellLayoutAnimal extends Pane {
 		return animal;
 	}
 
-	public String getImage() {
+	public Image getImage() {
 		return animalImage;
 	}
 
@@ -142,13 +143,13 @@ public class CellLayoutAnimal extends Pane {
 	}
 	
 	public void setView() {
-		controller.imgviewAnimal.setImage(new Image(animalImage));
+		controller.imgviewAnimal.setImage(animalImage);
 		controller.lblAnimalName.setText(animalName);
 		controller.lblAnimalType.setText(animalType);
-		controller.lblAnimalWeight.setText(String.valueOf(animalWeight));
+		controller.lblAnimalWeight.setText(String.valueOf(animalWeight) + " lbs");
 		controller.lblAnimalBreed.setText(animalBreed);
 		controller.lblHospitalName.setText(hospitalName);
-		controller.lblOwnerAddress.setText(hospitalAddress);
+		controller.lblHospitalAddress.setText(hospitalAddress);
 		controller.lblDoctorName.setText(doctorName);
 		controller.lblAnimalStatus.setText(animalStatus);
 		controller.lblVetNotes.setText(vetNotes);

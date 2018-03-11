@@ -33,12 +33,12 @@
 							<bottom>
 								<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
 									<children>
-										<Button fx:id="btnNew" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="New" />
+										<Button fx:id="btnNew" mnemonicParsing="false" onAction="#handleNewAnimal" prefHeight="64.0" prefWidth="116.0" text="New" />
+										<Button fx:id="btnDelete" layoutX="476.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleDeleteAnimal" prefHeight="64.0" prefWidth="116.0" text="Delete" />
 										<Button fx:id="btnSave" layoutX="592.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleSaveBasic" prefHeight="64.0" prefWidth="116.0" text="Save" />
-										<Button fx:id="btnSaveEdit" layoutX="650.0" layoutY="28.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="Save Edit" />
-										<Button fx:id="btnDelete" layoutX="476.0" layoutY="28.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="Delete" />
-										<Button fx:id="btnPrevious" layoutX="766.0" layoutY="28.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="Previous" />
-										<Button fx:id="btnNext" layoutX="824.0" layoutY="28.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="116.0" text="Next" />
+										<Button fx:id="btnSaveEdit" layoutX="650.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleSaveEditAnimal" prefHeight="64.0" prefWidth="116.0" text="Save Edit" />
+										<Button fx:id="btnPrevious" layoutX="766.0" layoutY="28.0" mnemonicParsing="false" onAction="#handlePrevious" prefHeight="64.0" prefWidth="116.0" text="Previous" />
+										<Button fx:id="btnNext" layoutX="824.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleNext" prefHeight="64.0" prefWidth="116.0" text="Next" />
 									</children>
 								</HBox>
 							</bottom>
@@ -49,7 +49,7 @@
 											<children>
 												<ImageView fx:id="imgAnimalImage" fitHeight="645.0" fitWidth="637.0" layoutX="-4.0" layoutY="25.0" onDragDropped="#handlePetDrop" onDragOver="#handlePetDrapOver" pickOnBounds="true" preserveRatio="true">
                                        <viewport>
-                                          <Rectangle2D minX="318.5" />
+                                          <Rectangle2D />
                                        </viewport></ImageView>
                                     <Label layoutX="269.0" layoutY="3.0" text="Picture of Animal" />
 											</children>
@@ -121,7 +121,7 @@
 				</AnchorPane>
 			</content>
 		</Tab>
-		<Tab fx:id="ownerView" closable="false" text="Owner Information">
+		<Tab fx:id="ownerView" closable="false" onSelectionChanged="#handleOwnerView" text="Owner Information">
 			<content>
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 					<children>
@@ -129,7 +129,7 @@
 							<bottom>
 								<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
 									<children>
-										<Button fx:id="btnSaveOwner" mnemonicParsing="false" prefHeight="63.0" prefWidth="127.0" text="Save" />
+										<Button fx:id="btnSaveOwner" mnemonicParsing="false" onAction="#handleOwnerSave" prefHeight="63.0" prefWidth="127.0" text="Save" />
 									</children>
 								</HBox>
 							</bottom>
@@ -174,7 +174,7 @@
 				</AnchorPane>
 			</content>
 		</Tab>
-		<Tab fx:id="manageView" closable="false" text="Personnel Information Management">
+		<Tab fx:id="manageView" closable="false" onSelectionChanged="#handleManageView" text="Personnel Information Management">
 			<content>
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -221,14 +221,14 @@
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                            <children>
                               <Label text="Personnel Editing Password:" />
-                              <PasswordField fx:id="pswdPersonnelEdit" />
+                              <PasswordField fx:id="pswdPersonnelEdit" onAction="#handlePersonnelLock" />
                               <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="51.0" visible="false" />
-                              <Button fx:id="btnNewEmployee" layoutX="137.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="New" />
-                              <Button fx:id="btnDeleteEmployee" layoutX="265.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Delete" />
-                              <Button fx:id="btnSaveEmployee" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Save" />
-                              <Button fx:id="btnSaveEditEmployee" layoutX="201.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Save Edit" />
-                              <Button fx:id="btnPreviousEmployee" layoutX="393.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Previous" />
-                              <Button fx:id="btnNextEmployee" layoutX="457.0" layoutY="28.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="128.0" text="Next" />
+                              <Button fx:id="btnNewEmployee" layoutX="137.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleNewEmployee" prefHeight="63.0" prefWidth="128.0" text="New" />
+                              <Button fx:id="btnDeleteEmployee" layoutX="265.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleDeleteEmployee" prefHeight="63.0" prefWidth="128.0" text="Delete" />
+                              <Button fx:id="btnSaveEmployee" mnemonicParsing="false" onAction="#handleSaveEmployee" prefHeight="63.0" prefWidth="128.0" text="Save" />
+                              <Button fx:id="btnSaveEditEmployee" layoutX="201.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleSaveEditEmployee" prefHeight="63.0" prefWidth="128.0" text="Save Edit" />
+                              <Button fx:id="btnPreviousEmployee" layoutX="393.0" layoutY="28.0" mnemonicParsing="false" onAction="#handlePreviousEmployee" prefHeight="63.0" prefWidth="128.0" text="Previous" />
+                              <Button fx:id="btnNextEmployee" layoutX="457.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleNextEmployee" prefHeight="63.0" prefWidth="128.0" text="Next" />
                            </children>
                         </HBox>
                      </bottom>
@@ -236,7 +236,7 @@
                </children></AnchorPane>
 			</content>
 		</Tab>
-      <Tab fx:id="viewEmployeeRecords" closable="false" text="Personnel Records and Expense Report">
+      <Tab fx:id="viewEmployeeRecords" closable="false" onSelectionChanged="#handlePersonnelInformationView" text="Personnel Records and Expense Report">
         <content>
           <AnchorPane fx:id="root" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -249,19 +249,21 @@
                      <bottom>
                         <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                           <buttons>
-                              <Button fx:id="btnPreviousEmployeeView" mnemonicParsing="false" text="Previous" />
-                            <Button fx:id="btnNextEmployeeView" mnemonicParsing="false" text="Next" />
+                              <Button fx:id="btnPreviousEmployeeView" mnemonicParsing="false" onAction="#handlePreviousEmployee" text="Previous" />
+                            <Button fx:id="btnNextEmployeeView" mnemonicParsing="false" onAction="#handleNextEmployee" text="Next" />
                           </buttons>
                         </ButtonBar>
                      </bottom>
                      <left>
                         <VBox alignment="CENTER" prefHeight="768.0" prefWidth="378.4" spacing="15.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Label alignment="CENTER" prefHeight="81.0" prefWidth="161.0" text="Expense Report" textAlignment="CENTER" underline="true">
+                              <Label alignment="CENTER" prefHeight="82.0" prefWidth="246.0" text="Weekly Expense Report" textAlignment="CENTER" underline="true">
                                  <font>
                                     <Font size="22.0" />
                                  </font>
                               </Label>
+                              <Label text="Revenue" />
+                              <Label fx:id="lblRevenue" text="Label" />
                               <Label text="Food Cost" />
                               <Label fx:id="lblFoodCost" text="Label" />
                               <Label text="Maintenance Cost" />
@@ -270,8 +272,6 @@
                               <Label fx:id="lblPersonnelCost" text="Label" />
                               <Label text="Profit" />
                               <Label fx:id="lblProfit" text="Label" />
-                              <Label text="Revenue" />
-                              <Label fx:id="lblRevenue" text="Label" />
                            </children>
                         </VBox>
                      </left>
@@ -288,8 +288,8 @@
                      <bottom>
                         <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                           <buttons>
-                            <Button fx:id="btnPreviousAnimalView" mnemonicParsing="false" text="Previous" />
-                              <Button fx:id="btnNextAnimalView" mnemonicParsing="false" text="Next" />
+                            <Button fx:id="btnPreviousAnimalView" mnemonicParsing="false" onAction="#handlePrevious" text="Previous" />
+                              <Button fx:id="btnNextAnimalView" mnemonicParsing="false" onAction="#handleNext" text="Next" />
                           </buttons>
                         </ButtonBar>
                      </bottom>

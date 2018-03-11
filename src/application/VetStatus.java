@@ -21,11 +21,11 @@ public class VetStatus implements Serializable{
 	
 	//Default
 	public VetStatus() {
-		this.animalStatus = "Not Given";
-		this.animalNotes = "Not Given";
-		this.doctorName = "Not Given";
-		this.vetName = "Not Given";
-		this.vetLocation = "Not Given";
+		this.animalStatus = "No Data Entered";
+		this.animalNotes = "No Data Entered";
+		this.doctorName = "No Data Entered";
+		this.vetName = "No Data Entered";
+		this.vetLocation = "No Data Entered";
 	}
 	//Full
 	public VetStatus(String animalStatus, String animalNotes, String doctorName, String vetName, String vetLocation) {
@@ -39,9 +39,9 @@ public class VetStatus implements Serializable{
 	public VetStatus(String animalStatus, String animalNotes) {
 		this.animalStatus = animalStatus;
 		this.animalNotes = animalNotes;
-		this.doctorName = "Not Given";
-		this.vetName = "Not Given";
-		this.vetLocation = "Not Given";
+		this.doctorName = "No Data Entered";
+		this.vetName = "No Data Entered";
+		this.vetLocation = "No Data Entered";
 	}
 	public String getAnimalStatus() {
 		return animalStatus;

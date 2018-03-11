@@ -19,7 +19,7 @@ public class Owner implements Serializable{
 	private String ownerAddress;
 	private String ownerPhoneNumber;
 	private int ownerAge;
-	private String ownerID;
+	private transient Image ownerID;
 	private LocalDate dateOfAdoption;
 	private String ownerStateOfResidence;
 	
@@ -29,12 +29,12 @@ public class Owner implements Serializable{
 		this.ownerAddress = "No Data Entered";
 		this.ownerPhoneNumber = "No Data Entered";
 		this.ownerAge = -1;
-		this.ownerID = "/application/AddImageImage.png";
+		this.ownerID = new Image("/application/AddImageImage.png");
 		this.dateOfAdoption = LocalDate.EPOCH;
 		this.ownerStateOfResidence = "No Data Entered";
 		}
 	//Full
-	public Owner(String ownerName, String ownerAddress, String ownerPhoneNumber, int ownerAge, String ownerIDLink,
+	public Owner(String ownerName, String ownerAddress, String ownerPhoneNumber, int ownerAge, Image ownerIDLink,
 			LocalDate dateOfAdoption, String ownerStateOfResidence) {
 		this.ownerName = ownerName;
 		this.ownerAddress = ownerAddress;
@@ -79,10 +79,10 @@ public class Owner implements Serializable{
 	public void setOwnerAge(int ownerAge) {
 		this.ownerAge = ownerAge;
 	}
-	public String getOwnerID() {
+	public Image getOwnerID() {
 		return ownerID;
 	}
-	public void setOwnerID(String ownerIDLink) {
+	public void setOwnerID(Image ownerIDLink) {
 		this.ownerID = ownerIDLink;
 	}
 	public LocalDate getDateOfAdoption() {

@@ -30,7 +30,7 @@ public class CellLayoutPersonnel extends Pane {
 	private boolean isEmployed;
 	private String employeeNotes;
 	private Personnel personnel;
-	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM dd, yyyy");
+	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy");
 
 	public CellLayoutPersonnel(Personnel personnel) {
 		Node view = null;
@@ -115,8 +115,8 @@ public class CellLayoutPersonnel extends Pane {
 		controller.lblAddress.setText(address);
 		controller.lblDateOfBirth.setText(String.valueOf(dateOfBirth.format(formatter)));
 		controller.lblDateOfEmployement.setText(String.valueOf(dateOfEmployement.format(formatter)));
-		controller.lblWage.setText(NumberFormat.getCurrencyInstance(Locale.US).format(wage) + "per hour");
-		controller.lblIsEmployed.setText(String.valueOf(isEmployed).toUpperCase(Locale.US));
+		controller.lblWage.setText(NumberFormat.getCurrencyInstance(Locale.US).format(wage) + " Per Hour");
+		controller.lblIsEmployed.setText(String.valueOf(isEmployed).replaceFirst("true", "Hired").replaceFirst("false", "Fired"));
 		controller.lblEmployeeNotes.setText(employeeNotes);
 	}
 
