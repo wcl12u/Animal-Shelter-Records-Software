@@ -8,6 +8,7 @@ PSET6-0 SuperProject
 February 12, 2018
  */
 
+//Imported Classes
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,7 +19,6 @@ import java.io.ObjectOutputStream;
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
-
 import javax.imageio.ImageIO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,8 +42,10 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
+//The controller for the RootLayout
 public class RootLayoutController {
 
+	//Fields
 	private Main mainApp;
 
 	private int animalIndex = -1;
@@ -175,8 +177,9 @@ public class RootLayoutController {
 
 	ObservableList<CellLayoutAnimal> animalRecords = FXCollections.observableArrayList();
 
+	//Downloaded from https://thenounproject.com/term/add-image/934572/
 	final Image defaultImage = new Image("/application/AddImageImage.png");
-
+	
 	final ObservableList<String> status = FXCollections.observableArrayList("Healthy", "Stable", "Critical");
 
 	private final String password = "person records!!";
@@ -187,6 +190,7 @@ public class RootLayoutController {
 
 	private boolean locked = true;
 
+	//Method called on launch of application
 	public void initialize() {
 
 		readFileAnimal();
@@ -220,30 +224,35 @@ public class RootLayoutController {
 		}	
 	}
 
+	//Handles Next Button
 	@FXML
 	public void handleNext() {
 		animalIndex++;
 		handleBasicView();
 	}
 
+	//Handles Previous Button
 	@FXML
 	public void handlePrevious() {
 		animalIndex--;
 		handleBasicView();
 	}
 	
+	//Handles Next Button for Employees
 	@FXML
 	public void handleNextEmployee() {
 		personnelIndex++;
 		handleManageView();
 	}
 	
+	//Handles Previous Button for Employees
 	@FXML
 	public void handlePreviousEmployee() {
 		personnelIndex--;
 		handleManageView();
 	}
 
+	//Handles Basic View Selection
 	@FXML
 	public void handleBasicView() {
 		if (basicView.isSelected()) {
@@ -268,6 +277,7 @@ public class RootLayoutController {
 		handleIncrementDisable();
 	}
 
+	//Handles Vet View Selection
 	@FXML
 	public void handleVetView() {
 		if(vetView.isSelected()) {
@@ -283,6 +293,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//Handles Owner View Selection
 	@FXML
 	public void handleOwnerView() {
 		if(ownerView.isSelected()) {
@@ -310,6 +321,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//Handles New Employee Button
 	@FXML
 	public void handleNewEmployee() {
 		btnDeleteEmployee.setDisable(true);
@@ -325,10 +337,12 @@ public class RootLayoutController {
 		txtareaEmployeeNotes.clear();
 	}
 
+	//Handles Personnel Edit Password Field
 	@FXML
 	public void handlePersonnelLock() {
 		if (pswdPersonnelEdit.getText().equals(password)) {
 			pswdPersonnelEdit.setPromptText("");
+			pswdPersonnelEdit.clear();
 			locked = false;
 			handleManageView();
 		}
@@ -339,6 +353,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//Handles Manage View Selection
 	@FXML
 	public void handleManageView() {
 		if (manageView.isSelected()) {
@@ -375,6 +390,7 @@ public class RootLayoutController {
 		}
 	}
 	
+	//Handles Personnel Information View Selection
 	@FXML
 	public void handlePersonnelInformationView() {
 		if (viewEmployeeRecords.isSelected()) {
@@ -404,6 +420,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//Handles Animal Report View Selection
 	@FXML
 	public void handleAnimalReportView() {
 		if (viewAnimalRecords.isSelected()) {
@@ -415,6 +432,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//Handles Save Button for Basic View
 	@FXML
 	public void handleSaveBasic() {
 
@@ -469,6 +487,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//Handles Save Edit Button for Basic View
 	@FXML
 	public void handleSaveEditAnimal() {
 
@@ -526,6 +545,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//Handles Save Button for Owner View
 	@FXML
 	public void handleOwnerSave() {
 
@@ -594,6 +614,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//Handles Save Button for Vet View
 	@FXML
 	public void handleVetSave() {
 
@@ -650,6 +671,7 @@ public class RootLayoutController {
 
 	}
 
+	//Handles Save Button for Employee Edit View
 	@FXML
 	public void handleSaveEmployee() {
 
@@ -727,9 +749,9 @@ public class RootLayoutController {
 		}
 	}
 
+	//Handles Save Edit Button for Employee Edit View
 	@FXML
 	public void handleSaveEditEmployee() {
-		
 		
 		boolean filled = true;
 		Personnel employee = new Personnel();
@@ -806,6 +828,7 @@ public class RootLayoutController {
 
 	}
 	
+	//Handles Delete Button for Employee Edit View
 	@FXML
 	public void handleDeleteEmployee() {
 		employeeRecords.remove(personnelIndex);
@@ -819,6 +842,7 @@ public class RootLayoutController {
 		handleManageView();
 	}
 
+	//Handles New Button for Basic View
 	@FXML
 	public void handleNewAnimal() {
 		btnDelete.setDisable(true);
@@ -832,6 +856,7 @@ public class RootLayoutController {
 		txtBreed.clear();
 	}
 
+	//Handles Delete Button for Basic View
 	@FXML
 	public void handleDeleteAnimal() {
 		new File("src/application/" + animalRecords.get(animalIndex).getAnimal().getAnimalName()).delete();
@@ -849,6 +874,7 @@ public class RootLayoutController {
 		handleBasicView();
 	}
 
+	//Method for checking increment button disabling
 	@FXML
 	public void handleIncrementDisable() {
 		if (basicView.isSelected() == true) {
@@ -909,6 +935,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//Handles Drag Over Event for ID Photo
 	@FXML
 	public void handleIDDrapOver(DragEvent dragEvent) {
 		Dragboard board = dragEvent.getDragboard();
@@ -917,6 +944,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//Handles Drop Event for ID Photo
 	@FXML
 	public void handleIDDrop(DragEvent de) {
 		try {
@@ -932,6 +960,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//Handles Drag Over Event for Animal Photo
 	@FXML
 	public void handlePetDrapOver(DragEvent dragEvent) {
 		Dragboard board = dragEvent.getDragboard();
@@ -940,6 +969,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//Handles Drop Event for Animal Photo
 	@FXML
 	public void handlePetDrop(DragEvent de) {
 		try {
@@ -955,6 +985,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//Method for Centering an Image in an Image View
 	public void centerImage(ImageView imageView) {
 		Image img = imageView.getImage();
 		if (img != null) {
@@ -980,6 +1011,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//Method for writing animal information to a file
 	public void writeFileAnimal(String name) {
 		FileOutputStream fileOutputStream;
 		ObjectOutputStream objectOutputStream;
@@ -1013,6 +1045,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//Method for writing personnel information to a file
 	public void writeFilePersonnel(String name) {
 		FileOutputStream fileOutputStream;
 		ObjectOutputStream objectOutputStream;
@@ -1032,6 +1065,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//Method for reading animal information from a file
 	public void readFileAnimal() {
 		FileInputStream fileInputStream;
 		ObjectInputStream objectInputStream;
@@ -1066,6 +1100,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//Method for reading personnel information from a file
 	public void readFilePersonnel() {
 		FileInputStream fileInputStream;
 		ObjectInputStream objectInputStream;
@@ -1090,7 +1125,7 @@ public class RootLayoutController {
 	}
 
 
-	//Safety check for string fields
+	//Safety check for string fields of a text field
 	public boolean stringSafetyCheck(TextField txtField) {
 		boolean safe;
 		if (txtField.getText().isEmpty() == false) {
@@ -1105,6 +1140,7 @@ public class RootLayoutController {
 		} 
 	}
 
+	//Safety check for string fields of a text area
 	public boolean stringSafetyCheck(TextArea textArea) {
 		boolean safe;
 		if (textArea.getText().isEmpty() == false) {
@@ -1167,6 +1203,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//Safety check for a choice box field
 	public boolean choiceSafetyCheck(ChoiceBox<String> choiceBox) {
 		boolean safe;
 		boolean temp;
@@ -1181,6 +1218,7 @@ public class RootLayoutController {
 		}
 	}
 
+	//MainApp Setter
 	public void setMainApp(Main mainApp) {
 		this.mainApp = mainApp;
 	}
