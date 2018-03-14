@@ -1222,5 +1222,4 @@ public class RootLayoutController {
 	public void setMainApp(Main mainApp) {
 		this.mainApp = mainApp;
 	}
-
 }
