@@ -4,7 +4,7 @@ package application;
 Thaddeus Albert Bartz
 William Christian Leonard
 Period 5
-PSET6-0 SuperProject
+PSET6 - 0 SuperProject
 February 12, 2018
 */
 
@@ -17,6 +17,7 @@ import javafx.scene.layout.HBox;
 
 public class CellLayoutPersonnelController implements Initializable {
 	
+	//Fields
 	@FXML
 	HBox cellLayoutPersonnel;
 	@FXML
@@ -36,6 +37,7 @@ public class CellLayoutPersonnelController implements Initializable {
 	@FXML
 	Label lblEmployeeNotes;
 	
+	//Initialize
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		

@@ -6,12 +6,14 @@ import java.io.Serializable;
 Thaddeus Albert Bartz
 William Christian Leonard
 Period 5
-PSET6-0 SuperProject
+PSET6  -0 SuperProject
 February 12, 2018
 */
 
+//stores the animals doctor and their notes
 public class VetStatus implements Serializable{
 
+    //variable list
 	private static final long serialVersionUID = 1L;
 	private String animalStatus;
 	private String animalNotes;

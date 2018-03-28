@@ -1,5 +1,14 @@
 package application;
 
+/*
+Thaddeus Albert Bartz
+William Christian Leonard
+Period 5
+PSET6 - 0 SuperProject
+February 12, 2018
+ */
+
+//import list
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -11,6 +20,7 @@ import javafx.util.Callback;
 
 public class CellLayoutAnimal extends Pane {
 
+    //field lists
 	private CellLayoutAnimalController controller;
 	private BasicAnimal animal;
 	private String animalName,animalType,animalBreed,hospitalName,hospitalAddress,doctorName,
@@ -21,6 +31,9 @@ public class CellLayoutAnimal extends Pane {
 	private double animalWeight;
 	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy");
 	
+	//Constructors
+	
+	//Full Constructor
 	public CellLayoutAnimal(BasicAnimal animal) {
 		Node view = null;
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AnimalInformation.fxml"));
@@ -56,6 +69,7 @@ public class CellLayoutAnimal extends Pane {
 		animalWeight = animal.getWeight();
 	}
 
+    //Default Constructor
 	public CellLayoutAnimal() {
 		Node view = null;
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AnimalInformation.fxml"));
@@ -74,6 +88,7 @@ public class CellLayoutAnimal extends Pane {
 		getChildren().add(view);
 	}
 
+    //Getters and Setters
 	public BasicAnimal getAnimal() {
 		return animal;
 	}
@@ -142,6 +157,7 @@ public class CellLayoutAnimal extends Pane {
 		return animalWeight;
 	}
 	
+	//Set View of List Item
 	public void setView() {
 		controller.imgviewAnimal.setImage(animalImage);
 		controller.lblAnimalName.setText(animalName);

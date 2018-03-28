@@ -1,5 +1,14 @@
 package application;
+
+/*
+Thaddeus Albert Bartz
+William Christian Leonard
+Period 5
+PSET6 - 0 SuperProject
+February 12, 2018
+*/
 	
+//import list
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,22 +19,22 @@ import javafx.scene.image.Image;
 
 public class Main extends Application {
 
-	//Private fields to hold one state and a root layout of our main window
+	//Private fields hold one state + root layout of main window
 	private Stage primaryStage;
 
-	//Start Method
+	//Start
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 
-			//Set main application and provide title and icon
+			//Set main application + title + icon
 			this.primaryStage = primaryStage;
 			this.primaryStage.setTitle("Animal Shelter Record Keeping");
 
-			//Set the application icon
+			//Set application icon
 			this.primaryStage.getIcons().add(new Image("/application/AppIcon.png"));
 
-			//Initialize root layout
+			//Initialize rootlayout
 			initRootLayout();
 
 		} catch(Exception e) {
@@ -33,35 +42,35 @@ public class Main extends Application {
 		}
 	}
 
-	//Launch Method to launch the application
+	//launch the application
 	public static void main(String[] args) {
 		launch(args);
 	}
 
-	//Initialize root layout of the application from the FXML file
+	//initialize rootlayout
 	public void initRootLayout() {
 		try {
 
-			//Main initialization for the layout and application "commencement"
+			//main initialization
 			TabPane rootLayout;
 			
-			//Create an FXML Loader
+			//create FXML loader
 			FXMLLoader loader = new FXMLLoader(Main.class.getResource("RootLayout.fxml"));
 
-			//Set the root layout field, casting as appropriate, to inject the FXML
+			//set the rootlayout field
 			rootLayout = (TabPane) loader.load();
 			
-			//Set the scene object to our rootLayout
+			//set scene object to rootLayout
 			Scene editRecord = new Scene(rootLayout);
 
-			//Give controller access to our application handle
+			//give controller access
 			RootLayoutController controller = loader.getController();
 			controller.setMainApp(this);
 
-			//Set the primary stage to the scene object we just made
+			//set the primarystage
 			primaryStage.setScene(editRecord);
 
-			//Show the stage
+			//display
 			primaryStage.show();
 
 		} catch(IOException e) {

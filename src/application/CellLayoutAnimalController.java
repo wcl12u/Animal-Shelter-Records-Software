@@ -1,5 +1,13 @@
 package application;
 
+/*
+Thaddeus Albert Bartz
+William Christian Leonard
+Period 5
+PSET6-0 SuperProject
+February 12, 2018
+ */
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -9,6 +17,7 @@ import javafx.scene.image.ImageView;
 
 public class CellLayoutAnimalController implements Initializable{
 
+    //Fields
 	@FXML
 	ImageView imgviewAnimal;
 	@FXML
@@ -42,6 +51,7 @@ public class CellLayoutAnimalController implements Initializable{
 	@FXML
 	Label lblPhoneNumber;
 	
+	//Initialize FXML
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		

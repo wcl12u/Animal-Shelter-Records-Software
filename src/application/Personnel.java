@@ -4,15 +4,18 @@ package application;
 Thaddeus Albert Bartz
 William Christian Leonard
 Period 5
-PSET6-0 SuperProject
+PSET6 - 0 SuperProject
 February 12, 2018
 */
 
+//import list
 import java.time.LocalDate;
 import java.io.Serializable;
 
+//stores personnel information
 public class Personnel implements Serializable{
 
+    //variables
 	private static final long serialVersionUID = 1L;
 	private String personnelName;
 	private String personnelAddress;
@@ -45,6 +48,7 @@ public class Personnel implements Serializable{
 		this.wage = wage;
 	}
 	
+	//getters and setters for fields
 	public String getPersonnelName() {
 		return personnelName;
 	}

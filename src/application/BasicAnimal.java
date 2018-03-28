@@ -4,13 +4,15 @@ package application;
 Thaddeus Albert Bartz
 William Christian Leonard
 Period 5
-PSET6-0 SuperProject
+PSET6 - 0 SuperProject
 February 12, 2018
 */
 
+//Import List
 import java.io.Serializable;
 import javafx.scene.image.Image;
 
+//Stores the baseline animal data
 public class BasicAnimal implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -91,6 +93,7 @@ public class BasicAnimal implements Serializable{
 		vetStatus = new VetStatus();
 	}
 	
+	//getters and setters
 	public String getAnimalType() {
 		return animalType;
 	}

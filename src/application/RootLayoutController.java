@@ -1013,11 +1013,9 @@ public class RootLayoutController {
 
 	//Method for writing animal information to a file
 	public void writeFileAnimal(String name) {
-		FileOutputStream fileOutputStream;
-		ObjectOutputStream objectOutputStream;
 		try {
-			fileOutputStream = new FileOutputStream(name);
-			objectOutputStream = new ObjectOutputStream(fileOutputStream);
+			FileOutputStream fileOutputStream = new FileOutputStream(name);
+			ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 			for(CellLayoutAnimal element: animalRecords) {
 				objectOutputStream.writeObject(element.getAnimal());
 				BufferedImage bImage = SwingFXUtils.fromFXImage(element.getAnimal().getAnimalImage(), null);
@@ -1047,11 +1045,9 @@ public class RootLayoutController {
 
 	//Method for writing personnel information to a file
 	public void writeFilePersonnel(String name) {
-		FileOutputStream fileOutputStream;
-		ObjectOutputStream objectOutputStream;
 		try {
-			fileOutputStream = new FileOutputStream(name);
-			objectOutputStream = new ObjectOutputStream(fileOutputStream);
+			FileOutputStream fileOutputStream = new FileOutputStream(name);
+			ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 			for(CellLayoutPersonnel element: employeeRecords) {
 				objectOutputStream.writeObject(element.getPersonnel());
 			}
@@ -1067,12 +1063,10 @@ public class RootLayoutController {
 
 	//Method for reading animal information from a file
 	public void readFileAnimal() {
-		FileInputStream fileInputStream;
-		ObjectInputStream objectInputStream;
 		try {
-			fileInputStream = new FileInputStream("src/application/Animals");
+			FileInputStream fileInputStream = new FileInputStream("src/application/Animals");
 			if (fileInputStream.available() > 0) {
-				objectInputStream = new ObjectInputStream(fileInputStream);
+				ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 				FileInputStream fileInputStream3 = new FileInputStream("src/application/Animal_Length");
 				int len = fileInputStream3.read();
 				fileInputStream3.close();
@@ -1102,12 +1096,10 @@ public class RootLayoutController {
 
 	//Method for reading personnel information from a file
 	public void readFilePersonnel() {
-		FileInputStream fileInputStream;
-		ObjectInputStream objectInputStream;
 		try {
-			fileInputStream = new FileInputStream("src/application/Personnel");
+			FileInputStream fileInputStream = new FileInputStream("src/application/Personnel");
 			if (fileInputStream.available() > 0) {
-				objectInputStream = new ObjectInputStream(fileInputStream);
+				ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 				FileInputStream fileInputStream2 = new FileInputStream("src/application/Personnel_Length");
 				int len = fileInputStream2.read();
 				fileInputStream2.close();

@@ -4,10 +4,11 @@ package application;
 Thaddeus Albert Bartz
 William Christian Leonard
 Period 5
-PSET6-0 SuperProject
+PSET6 - 0 SuperProject
 February 12, 2018
  */
 
+//Import List 
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.time.LocalDate;
@@ -20,6 +21,7 @@ import javafx.util.Callback;
 
 public class CellLayoutPersonnel extends Pane {
 
+    //Variables
 	private CellLayoutPersonnelController controller;
 	private String name;
 	private int age;
@@ -32,6 +34,7 @@ public class CellLayoutPersonnel extends Pane {
 	private Personnel personnel;
 	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy");
 
+    //Full Constructor
 	public CellLayoutPersonnel(Personnel personnel) {
 		Node view = null;
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CellLayoutPersonnel.fxml"));
@@ -59,6 +62,7 @@ public class CellLayoutPersonnel extends Pane {
 		employeeNotes = personnel.getEmployeeNotes();
 	}
 
+    //Default Constructor
 	public CellLayoutPersonnel() {
 		Node view = null;
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CellLayoutPersonnel.fxml"));
@@ -77,6 +81,7 @@ public class CellLayoutPersonnel extends Pane {
 		getChildren().add(view);
 	}
 	
+	//Getters and Setters
 	public Personnel getPersonnel() {
 		return personnel;
 	}
@@ -109,6 +114,7 @@ public class CellLayoutPersonnel extends Pane {
 		return wage;
 	}
 
+    //Set View of List Item
 	public void setView() {
 		controller.lblName.setText(name);
 		controller.lblAge.setText(String.valueOf(age));
