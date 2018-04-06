@@ -16,6 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.Format;
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
@@ -40,7 +41,16 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
 
 //The controller for the RootLayout
 public class RootLayoutController {
@@ -131,6 +141,8 @@ public class RootLayoutController {
 	@FXML
 	private PasswordField pswdPersonnelEdit;
 	@FXML
+	private HBox manageBar;
+	@FXML
 	private VBox personnelEdit;
 	@FXML
 	private TextField txtNameEmployee;
@@ -179,7 +191,7 @@ public class RootLayoutController {
 
 	//Downloaded from https://thenounproject.com/term/add-image/934572/
 	final Image defaultImage = new Image("/application/AddImageImage.png");
-	
+
 	final ObservableList<String> status = FXCollections.observableArrayList("Healthy", "Stable", "Critical");
 
 	private final String password = "person records!!";
@@ -218,7 +230,7 @@ public class RootLayoutController {
 			animalIndex = 0;
 			handleBasicView();
 		}
-		
+
 		if(employeeRecords.size() != 0) {
 			personnelIndex = 0;
 		}	
@@ -237,14 +249,14 @@ public class RootLayoutController {
 		animalIndex--;
 		handleBasicView();
 	}
-	
+
 	//Handles Next Button for Employees
 	@FXML
 	public void handleNextEmployee() {
 		personnelIndex++;
 		handleManageView();
 	}
-	
+
 	//Handles Previous Button for Employees
 	@FXML
 	public void handlePreviousEmployee() {
@@ -347,9 +359,10 @@ public class RootLayoutController {
 			handleManageView();
 		}
 		else {
+			pswdPersonnelEdit.setStyle("-fx-prompt-text-fill: red;");
 			pswdPersonnelEdit.clear();
 			pswdPersonnelEdit.setPromptText("Invaild Password");
-			pswdPersonnelEdit.deselect();
+			manageBar.requestFocus();
 		}
 	}
 
@@ -389,7 +402,7 @@ public class RootLayoutController {
 			}
 		}
 	}
-	
+
 	//Handles Personnel Information View Selection
 	@FXML
 	public void handlePersonnelInformationView() {
@@ -425,7 +438,7 @@ public class RootLayoutController {
 	public void handleAnimalReportView() {
 		if (viewAnimalRecords.isSelected()) {
 			for(CellLayoutAnimal element: animalRecords) {
-				element.setView();
+				element.setView(listviewAnimal);
 			}
 			handleIncrementDisable();
 			listviewAnimal.scrollTo(animalIndex);
@@ -752,7 +765,7 @@ public class RootLayoutController {
 	//Handles Save Edit Button for Employee Edit View
 	@FXML
 	public void handleSaveEditEmployee() {
-		
+
 		boolean filled = true;
 		Personnel employee = new Personnel();
 
@@ -827,7 +840,7 @@ public class RootLayoutController {
 		}
 
 	}
-	
+
 	//Handles Delete Button for Employee Edit View
 	@FXML
 	public void handleDeleteEmployee() {

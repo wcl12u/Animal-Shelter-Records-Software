@@ -218,7 +218,7 @@
                         </SplitPane>
                      </center>
                      <bottom>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                        <HBox fx:id="manageBar" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                            <children>
                               <Label text="Personnel Editing Password:" />
                               <PasswordField fx:id="pswdPersonnelEdit" onAction="#handlePersonnelLock" />
@@ -280,7 +280,7 @@
             </AnchorPane>
         </content>
       </Tab>
-      <Tab fx:id="viewAnimalRecords" onSelectionChanged="#handleAnimalReportView" text="Animal Information Report">
+      <Tab fx:id="viewAnimalRecords" onSelectionChanged="#handleAnimalReportView" text="Animal Information Records">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>

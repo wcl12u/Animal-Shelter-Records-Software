@@ -14,10 +14,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 public class CellLayoutAnimalController implements Initializable{
 
     //Fields
+	@FXML
+	HBox animalLayout;
+	@FXML
+	VBox animalInfo;
+	@FXML
+	VBox vetInfo;
+	@FXML
+	VBox ownerInfo;
 	@FXML
 	ImageView imgviewAnimal;
 	@FXML

@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1260.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CellLayoutAnimalController">
+<HBox fx:id="animalLayout" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1260.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CellLayoutAnimalController">
    <children>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="421.0" spacing="15.0">
+      <VBox fx:id="animalInfo" alignment="CENTER" prefHeight="200.0" prefWidth="421.0" spacing="15.0">
          <children>
             <Label alignment="CENTER" prefHeight="63.0" prefWidth="226.0" text="Animal Information" textAlignment="CENTER" underline="true">
                <font>
@@ -29,7 +29,7 @@
             <Label fx:id="lblAnimalBreed" text="Label" />
          </children></VBox>
       <Separator orientation="VERTICAL" prefHeight="200.0" />
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="421.0" spacing="15.0">
+      <VBox fx:id="vetInfo" alignment="CENTER" prefHeight="200.0" prefWidth="421.0" spacing="15.0">
          <children>
             <Label alignment="CENTER" prefHeight="63.0" prefWidth="285.0" text="Veterinarian Information" textAlignment="CENTER" underline="true">
                <font>
@@ -48,7 +48,7 @@
             <Label fx:id="lblVetNotes" text="Label" />
          </children></VBox>
       <Separator orientation="VERTICAL" prefHeight="200.0" />
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="421.0" spacing="15.0">
+      <VBox fx:id="ownerInfo" alignment="CENTER" prefHeight="200.0" prefWidth="421.0" spacing="15.0">
          <children>
             <Label alignment="CENTER" prefHeight="63.0" prefWidth="285.0" text="Owner Information" textAlignment="CENTER" underline="true">
                <font>

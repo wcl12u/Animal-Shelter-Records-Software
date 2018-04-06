@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.util.Callback;
@@ -158,7 +159,9 @@ public class CellLayoutAnimal extends Pane {
 	}
 	
 	//Set View of List Item
-	public void setView() {
+	public void setView(ListView<CellLayoutAnimal> listView) {
+		controller.animalLayout.setMaxWidth(listView.getWidth()-20);
+		controller.animalLayout.setMinWidth(listView.getWidth()-20);
 		controller.imgviewAnimal.setImage(animalImage);
 		controller.lblAnimalName.setText(animalName);
 		controller.lblAnimalType.setText(animalType);
