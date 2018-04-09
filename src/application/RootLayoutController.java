@@ -867,6 +867,10 @@ public class RootLayoutController {
 		txtAnimalType.clear();
 		txtWeight.clear();
 		txtBreed.clear();
+		txtName.setPromptText("");
+		txtAnimalType.setPromptText("");
+		txtWeight.setPromptText("");
+		txtBreed.setPromptText("");
 	}
 
 	//Handles Delete Button for Basic View
